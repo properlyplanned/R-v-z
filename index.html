@@ -1,788 +1,1243 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Revize — Revise What Matters</title>
+  <title>Riˈvaiz — Revise What Matters</title>
 
-    <link rel="stylesheet" href="css/style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    body {
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background: #FAF9F6;
+      color: #18181B;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      width: 100%;
+      padding: 16px 28px;
+      background: #FAF9F6;
+    }
+
+    .navbar {
+      max-width: 1450px;
+      margin: auto;
+      height: 78px;
+
+      background: #FFFFFF;
+      border: 1px solid #E8E2F5;
+      border-radius: 22px;
+
+      display: flex;
+      align-items: center;
+      padding: 0 22px;
+
+      box-shadow: 0 8px 30px rgba(124, 58, 237, 0.07);
+    }
+
+    /* LOGO */
+
+    .logo {
+      min-width: 210px;
+    }
+
+    .logo-name {
+      font-family: Georgia, serif;
+      font-size: 32px;
+      font-weight: bold;
+      color: #6235E8;
+      letter-spacing: -1px;
+    }
+
+    .logo-tagline {
+      font-size: 12px;
+      font-weight: 600;
+      color: #4F4770;
+      margin-top: 2px;
+    }
+
+    /* NAVIGATION */
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .nav-links a {
+      padding: 13px 17px;
+      border-radius: 14px;
+
+      font-size: 15px;
+      font-weight: 600;
+      color: #3F3A4C;
+
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      background: #F1EBFF;
+      color: #6235E8;
+    }
+
+    .nav-links a.active {
+      background: #F0E9FF;
+      color: #6235E8;
+    }
+
+    /* HEADER RIGHT */
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search {
+      width: 220px;
+      height: 46px;
+
+      display: flex;
+      align-items: center;
+      gap: 9px;
+
+      background: #F3F1F4;
+      border-radius: 25px;
+      padding: 0 16px;
+
+      color: #77727F;
+      font-size: 14px;
+    }
+
+    .search span {
+      font-size: 17px;
+    }
+
+    .theme-btn {
+      width: 46px;
+      height: 46px;
+
+      border: 1px solid #E6E0F0;
+      background: white;
+      border-radius: 14px;
+
+      font-size: 20px;
+    }
+
+    .signin {
+      height: 46px;
+      padding: 0 22px;
+
+      border: 1.5px solid #6D3FF2;
+      background: white;
+      color: #6235E8;
+
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .signup {
+      height: 46px;
+      padding: 0 22px;
+
+      border: none;
+      background: #6837ED;
+      color: white;
+
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 700;
+
+      box-shadow: 0 7px 18px rgba(104, 55, 237, 0.22);
+    }
+
+    .signin:hover {
+      background: #F4EFFF;
+    }
+
+    .signup:hover {
+      background: #5725D5;
+    }
+
+    /* =========================
+       MAIN
+    ========================= */
+
+    main {
+      max-width: 1450px;
+      margin: 0 auto;
+      padding: 32px 32px 60px;
+    }
+
+    .welcome {
+      margin-bottom: 25px;
+    }
+
+    .welcome-small {
+      font-size: 15px;
+      font-weight: 600;
+      color: #625A72;
+      margin-bottom: 7px;
+    }
+
+    .welcome h1 {
+      font-size: 38px;
+      line-height: 1.15;
+      letter-spacing: -1.5px;
+    }
+
+    .welcome h1 span {
+      color: #6837ED;
+    }
+
+    .welcome p {
+      margin-top: 9px;
+      color: #70687F;
+      font-size: 16px;
+    }
+
+    /* =========================
+       MAIN GRID
+    ========================= */
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    /* =========================
+       COUNTDOWN CARD
+    ========================= */
+
+    .countdown-card {
+      position: relative;
+      overflow: hidden;
+
+      min-height: 455px;
+
+      background: white;
+      border: 1px solid #E4DAFA;
+      border-radius: 28px;
+
+      padding: 38px;
+
+      box-shadow: 0 15px 45px rgba(124, 58, 237, 0.08);
+    }
+
+    .countdown-card::before {
+      content: "";
+      position: absolute;
+
+      width: 330px;
+      height: 330px;
+
+      border-radius: 50%;
+
+      background: #F0E8FF;
+
+      right: -110px;
+      top: -135px;
+
+      opacity: 0.85;
+    }
+
+    .countdown-card::after {
+      content: "";
+      position: absolute;
+
+      width: 160px;
+      height: 160px;
+
+      border-radius: 50%;
+
+      background: #FFE1D9;
+
+      right: 120px;
+      bottom: -100px;
+
+      opacity: 0.55;
+    }
+
+    .countdown-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      color: #6837ED;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      margin-bottom: 17px;
+    }
+
+    .countdown-title {
+      font-size: 37px;
+      line-height: 1.12;
+      max-width: 600px;
+      letter-spacing: -1.4px;
+    }
+
+    .countdown-title span {
+      color: #6837ED;
+    }
+
+    .countdown-description {
+      color: #686174;
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 650px;
+      margin-top: 12px;
+    }
+
+    /* TIMER */
+
+    .timer-box {
+      margin-top: 27px;
+
+      background: #FFFFFF;
+      border: 1px solid #E3D8F8;
+
+      border-radius: 21px;
+      padding: 22px 24px;
+
+      max-width: 760px;
+    }
+
+    .timer-label {
+      color: #6837ED;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 13px;
+    }
+
+    .timer {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .time-unit {
+      text-align: center;
+    }
+
+    .time-number {
+      font-size: 43px;
+      font-weight: 800;
+      color: #6837ED;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+
+    .time-label {
+      margin-top: 7px;
+      font-size: 11px;
+      color: #777080;
+      font-weight: 700;
+      letter-spacing: 0.7px;
+    }
+
+    .exam-info {
+      margin-top: 20px;
+
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .exam-name {
+      padding: 10px 15px;
+      background: #F0E9FF;
+      color: #6837ED;
+
+      border-radius: 12px;
+
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .exam-date {
+      color: #686174;
+      font-size: 13px;
+    }
+
+    .change-btn {
+      border: none;
+      background: none;
+      color: #6837ED;
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    /* =========================
+       TODAY'S PLAN
+    ========================= */
+
+    .plan-card {
+      background: white;
+      border: 1px solid #E6E0EC;
+      border-radius: 28px;
+      padding: 28px;
+
+      box-shadow: 0 15px 45px rgba(40, 30, 70, 0.05);
+    }
+
+    .plan-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding-bottom: 17px;
+      border-bottom: 1px solid #EEE9F3;
+    }
+
+    .plan-header h2 {
+      font-size: 20px;
+    }
+
+    .plan-header a {
+      color: #6837ED;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .plan-item {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+
+      padding: 18px 0;
+
+      border-bottom: 1px solid #F0ECF3;
+    }
+
+    .plan-icon {
+      width: 42px;
+      height: 42px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 13px;
+
+      background: #F0E9FF;
+      color: #6837ED;
+
+      font-size: 18px;
+    }
+
+    .plan-item:nth-child(3) .plan-icon {
+      background: #FFF0ED;
+      color: #F26D58;
+    }
+
+    .plan-item:nth-child(4) .plan-icon {
+      background: #FFF3E5;
+      color: #E89022;
+    }
+
+    .plan-item:nth-child(5) .plan-icon {
+      background: #EAF8F0;
+      color: #27A866;
+    }
+
+    .plan-text {
+      flex: 1;
+    }
+
+    .plan-text strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .plan-text small {
+      color: #817A8A;
+      font-size: 12px;
+    }
+
+    .plan-time {
+      font-size: 13px;
+      color: #675F70;
+      font-weight: 600;
+    }
+
+    /* =========================
+       STATS
+    ========================= */
+
+    .section-title {
+      margin-top: 30px;
+      margin-bottom: 16px;
+      font-size: 21px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .stat-card {
+      background: white;
+      border: 1px solid #E8E1EE;
+      border-radius: 21px;
+
+      padding: 24px;
+
+      box-shadow: 0 10px 30px rgba(40, 30, 70, 0.04);
+    }
+
+    .stat-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .stat-icon {
+      width: 42px;
+      height: 42px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border-radius: 12px;
+
+      background: #F0E9FF;
+      color: #6837ED;
+
+      font-size: 19px;
+    }
+
+    .stat-card h3 {
+      margin-top: 16px;
+      font-size: 29px;
+    }
+
+    .stat-card p {
+      margin-top: 4px;
+      color: #777080;
+      font-size: 13px;
+    }
+
+    .progress-bar {
+      height: 7px;
+      background: #EEEAF3;
+      border-radius: 20px;
+      margin-top: 15px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 72%;
+      background: #6837ED;
+      border-radius: 20px;
+    }
+
+    .progress-fill.orange {
+      width: 64%;
+      background: #FF9B8A;
+    }
+
+    .progress-fill.green {
+      width: 78%;
+      background: #65C58A;
+    }
+
+    /* =========================
+       PDF BANNER
+    ========================= */
+
+    .pdf-banner {
+      margin-top: 22px;
+
+      background: #19151F;
+      color: white;
+
+      border-radius: 23px;
+      padding: 25px 30px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .pdf-banner h2 {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    .pdf-banner p {
+      color: #C5BDCC;
+      font-size: 13px;
+    }
+
+    .pdf-button {
+      border: none;
+      background: #FFFFFF;
+      color: #6837ED;
+
+      padding: 13px 21px;
+      border-radius: 12px;
+
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 1100px) {
+
+      .navbar {
+        height: auto;
+        padding: 18px;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .logo {
+        min-width: auto;
+        flex: 1;
+      }
+
+      .nav-links {
+        order: 3;
+        width: 100%;
+        overflow-x: auto;
+      }
+
+      .header-right {
+        flex-wrap: wrap;
+      }
+
+      .search {
+        display: none;
+      }
+
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+
+      header {
+        padding: 10px;
+      }
+
+      .navbar {
+        border-radius: 17px;
+      }
+
+      .nav-links a {
+        font-size: 13px;
+        padding: 10px 12px;
+        white-space: nowrap;
+      }
+
+      main {
+        padding: 25px 15px 40px;
+      }
+
+      .welcome h1 {
+        font-size: 30px;
+      }
+
+      .countdown-card {
+        padding: 25px 20px;
+        min-height: auto;
+      }
+
+      .countdown-title {
+        font-size: 29px;
+      }
+
+      .timer {
+        gap: 4px;
+      }
+
+      .time-number {
+        font-size: 29px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .pdf-banner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .logo-name {
+        font-size: 27px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
+  <!-- =========================
+       HEADER
+  ========================= -->
 
-<header class="top-header">
+  <header>
 
-    <a href="index.html" class="brand">
-        <div class="brand-name">Riˈvaiz</div>
-        <div class="brand-tagline">Revise What Matters</div>
-    </a>
+    <nav class="navbar">
 
-    <nav class="main-nav">
+      <div class="logo">
+        <div class="logo-name">Riˈvaiz</div>
+        <div class="logo-tagline">Revise What Matters</div>
+      </div>
 
-        <a href="index.html" class="nav-link active">
-            <span>⌂</span>
-            Home
+      <div class="nav-links">
+
+        <a href="index.html" class="active">
+          Home
         </a>
 
-        <a href="study-plan.html" class="nav-link">
-            <span>▣</span>
-            Study Plan
+        <a href="study-plan.html">
+          Study Plan
         </a>
 
-        <a href="notes.html" class="nav-link">
-            <span>▤</span>
-            PDF Notes
+        <a href="pdf-notes.html">
+          PDF Notes
         </a>
 
-        <a href="practice.html" class="nav-link">
-            <span>♧</span>
-            Practice
+        <a href="practice.html">
+          Practice
         </a>
 
-        <a href="final-hour.html" class="nav-link">
-            <span>◷</span>
-            Final Hour
+        <a href="final-hour.html">
+          Final Hour
         </a>
 
-        <a href="progress.html" class="nav-link">
-            <span>♙</span>
-            Progress
+        <a href="progress.html">
+          Progress
         </a>
 
-        <div class="more-menu">
-            <button class="more-button">
-                More <span>⌄</span>
-            </button>
+        <a href="#">
+          More⌄
+        </a>
 
-            <div class="more-dropdown">
-                <a href="my-exam.html">My Exam</a>
-                <a href="mock-tests.html">Mock Tests</a>
-                <a href="settings.html">Settings</a>
-                <a href="pricing.html">Pricing</a>
-            </div>
+      </div>
+
+      <div class="header-right">
+
+        <div class="search">
+          <span>⌕</span>
+          <span>Search anything...</span>
         </div>
+
+        <button class="theme-btn" onclick="toggleTheme()">
+          ☾
+        </button>
+
+        <button
+          class="signin"
+          onclick="location.href='signin.html'">
+          Sign in
+        </button>
+
+        <button
+          class="signup"
+          onclick="location.href='signup.html'">
+          Sign up
+        </button>
+
+      </div>
 
     </nav>
 
-    <div class="header-right">
-
-        <div class="search-box">
-            <span>⌕</span>
-            <input type="text" placeholder="Search anything...">
-        </div>
-
-        <button class="theme-button" id="themeToggle">
-            ☾
-        </button>
-
-        <a href="login.html" class="signin-button">
-            Sign in
-        </a>
-
-        <a href="signup.html" class="signup-button">
-            Sign up →
-        </a>
-
-    </div>
-
-</header>
+  </header>
 
 
-<!-- ================= PAGE ================= -->
+  <!-- =========================
+       MAIN DASHBOARD
+  ========================= -->
 
-<div class="page-layout">
+  <main>
 
-    <!-- ================= SIDEBAR ================= -->
+    <section class="welcome">
 
-    <aside class="sidebar">
+      <div class="welcome-small">
+        Welcome back! 👋
+      </div>
 
-        <nav class="sidebar-nav">
+      <h1>
+        Your exam is close.<br>
+        <span>Revise what matters.</span>
+      </h1>
 
-            <a href="index.html" class="side-link active">
-                <span class="side-icon">▦</span>
-                Dashboard
-            </a>
+      <p>
+        Stay focused. Let Riˈvaiz decide what deserves your time.
+      </p>
 
-            <a href="my-exam.html" class="side-link">
-                <span class="side-icon">▣</span>
-                My Exam
-            </a>
-
-            <a href="study-plan.html" class="side-link">
-                <span class="side-icon">▤</span>
-                Study Plan
-            </a>
-
-            <a href="notes.html" class="side-link">
-                <span class="side-icon">▥</span>
-                PDF Notes
-            </a>
-
-            <a href="practice.html" class="side-link">
-                <span class="side-icon">?</span>
-                Practice
-            </a>
-
-            <a href="final-hour.html" class="side-link">
-                <span class="side-icon">ϟ</span>
-                Final Hour
-            </a>
-
-            <a href="progress.html" class="side-link">
-                <span class="side-icon">▥</span>
-                Progress
-            </a>
-
-            <a href="settings.html" class="side-link">
-                <span class="side-icon">⚙</span>
-                Settings
-            </a>
-
-        </nav>
+    </section>
 
 
-        <!-- Upgrade -->
+    <!-- MAIN TWO COLUMN AREA -->
 
-        <div class="upgrade-card">
-
-            <div class="upgrade-icon">♛</div>
-
-            <h3>
-                Don't just study hard.
-                <strong>Revise smart.</strong>
-            </h3>
-
-            <p>
-                Make every minute count and prepare with a better plan.
-            </p>
-
-            <a href="pricing.html" class="upgrade-button">
-                Upgrade Now
-                <span>→</span>
-            </a>
-
-        </div>
+    <section class="dashboard-grid">
 
 
-        <!-- Bottom Auth -->
+      <!-- COUNTDOWN -->
 
-        <div class="sidebar-auth">
+      <div class="countdown-card">
 
-            <a href="login.html" class="sidebar-login">
-                <span>♙</span>
-                <b>Sign in</b>
-                <span class="auth-arrow">›</span>
-            </a>
+        <div class="countdown-content">
 
-            <a href="signup.html" class="sidebar-signup">
-                <span>♙+</span>
-                <b>Sign up</b>
-                <span class="auth-arrow">›</span>
-            </a>
+          <div class="eyebrow">
+            EXAM COUNTDOWN
+          </div>
 
-        </div>
+          <h2 class="countdown-title">
+            Every minute<br>
+            <span>can change your result.</span>
+          </h2>
 
-    </aside>
+          <p class="countdown-description">
+            Tell Riˈvaiz how much time you have.
+            We'll help you decide what to study,
+            what to skip and what to practice.
+          </p>
 
 
-    <!-- ================= MAIN CONTENT ================= -->
+          <div class="timer-box">
 
-    <main class="main-content">
+            <div class="timer-label">
+              EXAM IN
+            </div>
 
-        <!-- Welcome -->
+            <div class="timer">
 
-        <section class="welcome-section">
-
-            <div>
-
-                <div class="welcome-small">
-                    Welcome back! 👋
+              <div class="time-unit">
+                <div class="time-number" id="days">
+                  07
                 </div>
+                <div class="time-label">
+                  DAYS
+                </div>
+              </div>
 
-                <h1>
-                    Your exam is close.
-                    <br>
-                    <span>Revise what matters.</span>
-                </h1>
+              <div class="time-unit">
+                <div class="time-number" id="hours">
+                  09
+                </div>
+                <div class="time-label">
+                  HOURS
+                </div>
+              </div>
 
-                <p>
-                    Stay focused. Stay consistent. You've got this!
-                </p>
+              <div class="time-unit">
+                <div class="time-number" id="minutes">
+                  31
+                </div>
+                <div class="time-label">
+                  MINUTES
+                </div>
+              </div>
+
+              <div class="time-unit">
+                <div class="time-number" id="seconds">
+                  03
+                </div>
+                <div class="time-label">
+                  SECONDS
+                </div>
+              </div>
 
             </div>
 
-        </section>
 
+            <div class="exam-info">
 
-        <!-- ================= TOP GRID ================= -->
+              <div class="exam-name">
+                🎓 GATE 2026 (EE)
+              </div>
 
-        <div class="dashboard-grid">
+              <div class="exam-date">
+                10 Sep 2026 · 09:00 AM
+              </div>
 
+              <button class="change-btn">
+                Change
+              </button>
 
-            <!-- Countdown -->
+            </div>
 
-            <section class="countdown-card">
+          </div>
 
-                <div class="countdown-content">
+        </div>
 
-                    <div class="section-label">
-                        EXAM COUNTDOWN
-                    </div>
+      </div>
 
-                    <h2>
-                        Every minute
-                        <br>
-                        <span>can change your result.</span>
-                    </h2>
 
-                    <p>
-                        Tell Revize how much time you have.
-                        We'll help you decide what to study,
-                        what to skip, and what to practice.
-                    </p>
+      <!-- TODAY'S PLAN -->
 
+      <div class="plan-card">
 
-                    <!-- Countdown -->
+        <div class="plan-header">
 
-                    <div class="countdown-box">
+          <h2>
+            Today's Plan
+          </h2>
 
-                        <div class="countdown-title">
-                            EXAM IN
-                        </div>
-
-                        <div class="countdown-timer">
-
-                            <div>
-                                <strong id="days">07</strong>
-                                <small>DAYS</small>
-                            </div>
-
-                            <span>:</span>
-
-                            <div>
-                                <strong id="hours">09</strong>
-                                <small>HOURS</small>
-                            </div>
-
-                            <span>:</span>
-
-                            <div>
-                                <strong id="minutes">31</strong>
-                                <small>MINUTES</small>
-                            </div>
-
-                            <span>:</span>
-
-                            <div>
-                                <strong id="seconds">03</strong>
-                                <small>SECONDS</small>
-                            </div>
-
-                        </div>
-
-
-                        <div class="exam-info">
-
-                            <div class="exam-name">
-                                🎓 GATE 2026 (EE)
-                            </div>
-
-                            <div class="exam-date">
-                                10 Sep 2026, 09:00 AM
-                            </div>
-
-                            <a href="my-exam.html">
-                                Change
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Illustration -->
-
-                <div class="student-illustration">
-
-                    <div class="illustration-glow"></div>
-
-                    <div class="student">
-                        <div class="student-head"></div>
-                        <div class="student-hair"></div>
-                        <div class="student-body"></div>
-                        <div class="student-arm"></div>
-                    </div>
-
-                    <div class="laptop">
-                        <div class="laptop-screen">
-                            <span>ϟ</span>
-                        </div>
-                        <div class="laptop-base"></div>
-                    </div>
-
-                    <div class="books">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- ================= TODAY PLAN ================= -->
-
-            <section class="plan-card">
-
-                <div class="card-header">
-
-                    <h2>Today's Plan</h2>
-
-                    <a href="study-plan.html">
-                        View Full Plan →
-                    </a>
-
-                </div>
-
-
-                <div class="plan-list">
-
-                    <div class="plan-item">
-
-                        <div class="plan-icon blue">
-                            📖
-                        </div>
-
-                        <div class="plan-text">
-                            <strong>What to Study</strong>
-                            <small>Electrical Machines</small>
-                        </div>
-
-                        <div class="plan-time">
-                            45m
-                        </div>
-
-                        <div class="checkbox"></div>
-
-                    </div>
-
-
-                    <div class="plan-item">
-
-                        <div class="plan-icon red">
-                            ⏱
-                        </div>
-
-                        <div class="plan-text">
-                            <strong>What to Skip</strong>
-                            <small>Power Systems (Low Weightage)</small>
-                        </div>
-
-                        <div class="plan-time">
-                            15m
-                        </div>
-
-                        <div class="checkbox"></div>
-
-                    </div>
-
-
-                    <div class="plan-item">
-
-                        <div class="plan-icon orange">
-                            📝
-                        </div>
-
-                        <div class="plan-text">
-                            <strong>Practice Questions</strong>
-                            <small>20 Important Questions</small>
-                        </div>
-
-                        <div class="plan-time">
-                            60m
-                        </div>
-
-                        <div class="checkbox"></div>
-
-                    </div>
-
-
-                    <div class="plan-item">
-
-                        <div class="plan-icon green">
-                            ✓
-                        </div>
-
-                        <div class="plan-text">
-                            <strong>Last Hour Revision</strong>
-                            <small>Formulas + Key Points</small>
-                        </div>
-
-                        <div class="plan-time">
-                            30m
-                        </div>
-
-                        <div class="checkbox"></div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="motivation">
-                    ⭐ Discipline today, success tomorrow.
-                </div>
-
-            </section>
+          <a href="study-plan.html">
+            View Full Plan →
+          </a>
 
         </div>
 
 
-        <!-- ================= STATISTICS ================= -->
-
-        <section class="stats-grid">
-
-            <div class="stat-card">
-
-                <div class="stat-icon blue-icon">
-                    📖
-                </div>
-
-                <strong>72%</strong>
-
-                <span>Syllabus Covered</span>
-
-                <div class="progress-bar">
-                    <div style="width:72%"></div>
-                </div>
-
-                <small class="growth">
-                    ↑ 8% this week
-                </small>
-
-            </div>
-
-
-            <div class="stat-card">
-
-                <div class="stat-icon red-icon">
-                    🎯
-                </div>
-
-                <strong>128</strong>
-
-                <span>Topics Completed</span>
-
-                <div class="progress-bar">
-                    <div style="width:68%"></div>
-                </div>
-
-                <small class="growth">
-                    ↑ 12 this week
-                </small>
-
-            </div>
-
-
-            <div class="stat-card">
-
-                <div class="stat-icon purple-icon">
-                    ✓
-                </div>
-
-                <strong>56</strong>
-
-                <span>Tests Attempted</span>
-
-                <div class="progress-bar">
-                    <div style="width:56%"></div>
-                </div>
-
-                <small class="growth">
-                    ↑ 6 this week
-                </small>
-
-            </div>
-
-
-            <div class="stat-card">
-
-                <div class="stat-icon orange-icon">
-                    🔥
-                </div>
-
-                <strong>12</strong>
-
-                <span>Day Streak</span>
-
-                <div class="progress-bar">
-                    <div style="width:80%"></div>
-                </div>
-
-                <small class="streak-text">
-                    Keep it up! 🔥
-                </small>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= LOWER GRID ================= -->
-
-        <div class="lower-grid">
-
-
-            <!-- Continue Learning -->
-
-            <section class="learning-card">
-
-                <div class="card-header">
-
-                    <h2>Continue Learning</h2>
-
-                    <a href="study-plan.html">
-                        View All →
-                    </a>
-
-                </div>
-
-
-                <div class="learning-list">
-
-
-                    <a href="notes.html" class="learning-item">
-
-                        <div class="learning-icon purple">
-                            📄
-                        </div>
-
-                        <div>
-                            <strong>Transformer –</strong>
-                            <strong>Key Concepts</strong>
-
-                            <div class="mini-progress">
-                                <div style="width:65%"></div>
-                            </div>
-
-                            <small>65% Completed</small>
-                        </div>
-
-                        <span class="dots">⋮</span>
-
-                    </a>
-
-
-                    <a href="notes.html" class="learning-item">
-
-                        <div class="learning-icon green">
-                            📄
-                        </div>
-
-                        <div>
-                            <strong>AC Circuits –</strong>
-                            <strong>Important Topics</strong>
-
-                            <div class="mini-progress">
-                                <div style="width:40%"></div>
-                            </div>
-
-                            <small>40% Completed</small>
-                        </div>
-
-                        <span class="dots">⋮</span>
-
-                    </a>
-
-
-                    <a href="notes.html" class="learning-item">
-
-                        <div class="learning-icon orange">
-                            📄
-                        </div>
-
-                        <div>
-                            <strong>Network Theory –</strong>
-                            <strong>Theorems</strong>
-
-                            <div class="mini-progress">
-                                <div style="width:30%"></div>
-                            </div>
-
-                            <small>30% Completed</small>
-                        </div>
-
-                        <span class="dots">⋮</span>
-
-                    </a>
-
-
-                    <a href="notes.html" class="learning-item">
-
-                        <div class="learning-icon blue">
-                            📄
-                        </div>
-
-                        <div>
-                            <strong>Digital Electronics –</strong>
-                            <strong>Basics</strong>
-
-                            <div class="mini-progress">
-                                <div style="width:20%"></div>
-                            </div>
-
-                            <small>20% Completed</small>
-                        </div>
-
-                        <span class="dots">⋮</span>
-
-                    </a>
-
-                </div>
-
-            </section>
-
-
-            <!-- ================= PROGRESS ================= -->
-
-            <section class="progress-card">
-
-                <div class="card-header">
-
-                    <h2>Overall Progress</h2>
-
-                    <a href="progress.html">
-                        View Details →
-                    </a>
-
-                </div>
-
-
-                <div class="progress-content">
-
-                    <div class="progress-circle">
-
-                        <div class="circle-inner">
-                            <strong>72%</strong>
-                            <span>Overall</span>
-                        </div>
-
-                    </div>
-
-
-                    <div class="subjects">
-
-                        <div class="subject">
-                            <div>
-                                <b>Electromagnetics</b>
-                                <span>72%</span>
-                            </div>
-
-                            <div class="subject-bar">
-                                <div style="width:72%"></div>
-                            </div>
-                        </div>
-
-
-                        <div class="subject">
-                            <div>
-                                <b>Electrical Machines</b>
-                                <span>68%</span>
-                            </div>
-
-                            <div class="subject-bar">
-                                <div style="width:68%"></div>
-                            </div>
-                        </div>
-
-
-                        <div class="subject">
-                            <div>
-                                <b>Power Systems</b>
-                                <span>75%</span>
-                            </div>
-
-                            <div class="subject-bar">
-                                <div style="width:75%"></div>
-                            </div>
-                        </div>
-
-
-                        <div class="subject">
-                            <div>
-                                <b>Control Systems</b>
-                                <span>60%</span>
-                            </div>
-
-                            <div class="subject-bar">
-                                <div style="width:60%"></div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
+        <div class="plan-item">
+
+          <div class="plan-icon">
+            📖
+          </div>
+
+          <div class="plan-text">
+            <strong>
+              What to Study
+            </strong>
+            <small>
+              Electrical Machines
+            </small>
+          </div>
+
+          <div class="plan-time">
+            45m
+          </div>
 
         </div>
 
 
-        <!-- ================= MOTIVATION ================= -->
+        <div class="plan-item">
 
-        <section class="motivation-banner">
+          <div class="plan-icon">
+            ⏱
+          </div>
 
-            <div>
+          <div class="plan-text">
+            <strong>
+              What to Skip
+            </strong>
+            <small>
+              Low-weight topics
+            </small>
+          </div>
 
-                <h2>
-                    You don't need more time.
-                    <br>
-                    <span>You need a better plan.</span>
-                </h2>
+          <div class="plan-time">
+            15m
+          </div>
 
-                <p>
-                    Stay focused. Stay consistent.
-                    You've got this! 💪
-                </p>
-
-                <a href="study-plan.html">
-                    Continue Learning →
-                </a>
-
-            </div>
+        </div>
 
 
-            <div class="target-illustration">
+        <div class="plan-item">
 
-                <div class="target-ring ring-one"></div>
-                <div class="target-ring ring-two"></div>
-                <div class="target-ring ring-three"></div>
+          <div class="plan-icon">
+            📝
+          </div>
 
-                <div class="target-dot"></div>
+          <div class="plan-text">
+            <strong>
+              Practice Questions
+            </strong>
+            <small>
+              20 important questions
+            </small>
+          </div>
 
-                <div class="arrow"></div>
+          <div class="plan-time">
+            60m
+          </div>
 
-            </div>
-
-        </section>
-
-    </main>
-
-</div>
+        </div>
 
 
-<script src="js/script.js"></script>
+        <div class="plan-item">
+
+          <div class="plan-icon">
+            ✓
+          </div>
+
+          <div class="plan-text">
+            <strong>
+              Last Hour Revision
+            </strong>
+            <small>
+              Formulas + key points
+            </small>
+          </div>
+
+          <div class="plan-time">
+            30m
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROGRESS -->
+
+    <h2 class="section-title">
+      Your Preparation
+    </h2>
+
+
+    <section class="stats">
+
+
+      <div class="stat-card">
+
+        <div class="stat-top">
+
+          <div>
+            <small>Overall Progress</small>
+          </div>
+
+          <div class="stat-icon">
+            ◔
+          </div>
+
+        </div>
+
+        <h3>
+          72%
+        </h3>
+
+        <p>
+          Keep going — you're on track.
+        </p>
+
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-top">
+
+          <div>
+            <small>Topics Covered</small>
+          </div>
+
+          <div class="stat-icon">
+            ✓
+          </div>
+
+        </div>
+
+        <h3>
+          18 / 25
+        </h3>
+
+        <p>
+          7 important topics remaining.
+        </p>
+
+        <div class="progress-bar">
+          <div class="progress-fill orange"></div>
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-top">
+
+          <div>
+            <small>Practice</small>
+          </div>
+
+          <div class="stat-icon">
+            ✎
+          </div>
+
+        </div>
+
+        <h3>
+          64%
+        </h3>
+
+        <p>
+          Questions successfully practiced.
+        </p>
+
+        <div class="progress-bar">
+          <div class="progress-fill green"></div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PDF FEATURE -->
+
+    <section class="pdf-banner">
+
+      <div>
+
+        <h2>
+          ⚡ Have notes but no time?
+        </h2>
+
+        <p>
+          Upload your PDF and Riˈvaiz will find the key points,
+          summaries and important questions.
+        </p>
+
+      </div>
+
+      <button
+        class="pdf-button"
+        onclick="location.href='pdf-notes.html'">
+        Upload PDF →
+      </button>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+
+    /*
+      EXAM COUNTDOWN
+
+      Change this date to your actual exam date.
+    */
+
+    const examDate = new Date("September 10, 2026 09:00:00").getTime();
+
+
+    function updateCountdown() {
+
+      const now = new Date().getTime();
+
+      const difference = examDate - now;
+
+
+      if (difference <= 0) {
+
+        document.getElementById("days").innerText = "00";
+        document.getElementById("hours").innerText = "00";
+        document.getElementById("minutes").innerText = "00";
+        document.getElementById("seconds").innerText = "00";
+
+        return;
+      }
+
+
+      const days = Math.floor(
+        difference / (1000 * 60 * 60 * 24)
+      );
+
+      const hours = Math.floor(
+        (difference % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
+      );
+
+      const minutes = Math.floor(
+        (difference % (1000 * 60 * 60))
+        / (1000 * 60)
+      );
+
+      const seconds = Math.floor(
+        (difference % (1000 * 60))
+        / 1000
+      );
+
+
+      document.getElementById("days").innerText =
+        String(days).padStart(2, "0");
+
+      document.getElementById("hours").innerText =
+        String(hours).padStart(2, "0");
+
+      document.getElementById("minutes").innerText =
+        String(minutes).padStart(2, "0");
+
+      document.getElementById("seconds").innerText =
+        String(seconds).padStart(2, "0");
+    }
+
+
+    updateCountdown();
+
+    setInterval(updateCountdown, 1000);
+
+
+    /*
+      SIMPLE THEME BUTTON
+    */
+
+    function toggleTheme() {
+
+      document.body.classList.toggle("dark");
+
+      if (document.body.classList.contains("dark")) {
+
+        document.body.style.background = "#17131C";
+        document.body.style.color = "#FFFFFF";
+
+      } else {
+
+        document.body.style.background = "#FAF9F6";
+        document.body.style.color = "#18181B";
+
+      }
+
+    }
+
+  </script>
 
 </body>
 </html>

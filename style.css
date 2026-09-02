@@ -2114,3 +2114,271 @@ body {
   }
 
 }
+/* =========================
+   STUDY PLAN PAGE
+========================= */
+
+.study-plan-page {
+  padding: 55px 0 75px;
+  background: var(--background);
+}
+
+.study-plan-page .container {
+  width: 1200px;
+  max-width: calc(100% - 48px);
+  margin: 0 auto;
+}
+
+.page-intro {
+  max-width: 720px;
+  margin-bottom: 35px;
+}
+
+.page-intro h1 {
+  margin: 0 0 12px;
+  color: var(--text);
+  font-size: 38px;
+  line-height: 1.15;
+}
+
+.page-intro p:last-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.planner-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 22px;
+}
+
+.planner-card,
+.planner-result {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.planner-card h2,
+.planner-result h2 {
+  margin: 0 0 8px;
+  color: var(--text);
+  font-size: 23px;
+}
+
+.planner-description {
+  margin: 0 0 28px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.planner-field {
+  margin-bottom: 23px;
+}
+
+.planner-field > label {
+  display: block;
+  margin-bottom: 9px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.planner-field input[type="text"],
+.planner-field select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--white);
+  color: var(--text);
+  font-size: 14px;
+}
+
+.level-options {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.level-option {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 13px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.level-option input {
+  accent-color: var(--primary);
+}
+
+.level-option span {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.level-option strong {
+  color: var(--text);
+  font-size: 13px;
+}
+
+.level-option small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.planner-button {
+  width: 100%;
+  padding: 14px 18px;
+  border: none;
+  border-radius: 12px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.planner-button:hover {
+  background: var(--primary-dark);
+}
+
+.planner-result {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+}
+
+.result-empty {
+  max-width: 360px;
+  text-align: center;
+}
+
+.result-icon {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  border-radius: 16px;
+  background: var(--purple-light);
+  color: var(--primary);
+  font-size: 23px;
+}
+
+.result-empty h2 {
+  font-size: 22px;
+}
+
+.result-empty p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.result-content {
+  width: 100%;
+}
+
+.result-label {
+  color: var(--primary);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+#plan-summary {
+  margin-bottom: 24px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.plan-list {
+  border-top: 1px solid var(--border);
+}
+
+.plan-item {
+  display: flex;
+  gap: 15px;
+  padding: 17px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.plan-item > span {
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.plan-item strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.plan-item p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.skip-item strong {
+  color: #d96d60;
+}
+
+.planner-next {
+  display: inline-flex;
+  margin-top: 22px;
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+/* Responsive */
+
+@media (max-width: 850px) {
+
+  .planner-layout {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .study-plan-page {
+    padding: 35px 0 55px;
+  }
+
+  .study-plan-page .container {
+    width: calc(100% - 24px);
+    max-width: none;
+  }
+
+  .page-intro h1 {
+    font-size: 30px;
+  }
+
+  .planner-card,
+  .planner-result {
+    padding: 23px;
+  }
+
+}

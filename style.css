@@ -1846,3 +1846,147 @@ body.dark-mode .pressure-box {
   }
 
 }
+
+/* =========================
+   GLOBAL CONTAINER FIX
+========================= */
+
+.container {
+  width: min(1200px, calc(100% - 40px));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* =========================
+   HEADER FIX
+========================= */
+
+.site-header {
+  width: 100%;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-wrap {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+
+/* Logo */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.brand > span:last-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand strong {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.brand small {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 9px;
+  line-height: 1;
+}
+
+
+/* Navigation */
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.main-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: var(--primary);
+}
+
+
+/* Header Actions */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.theme-btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: var(--white);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.theme-btn:hover {
+  border-color: var(--primary);
+}
+
+.user-circle {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--purple-light);
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+
+/* Mobile Header */
+
+@media (max-width: 900px) {
+
+  .container {
+    width: min(100% - 30px, 700px);
+  }
+
+  .nav-wrap {
+    min-height: 68px;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .container {
+    width: min(100% - 24px, 500px);
+  }
+
+}

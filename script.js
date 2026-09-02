@@ -263,3 +263,26 @@ if (searchInput) {
         }
     );
 }
+/* =========================
+   SIGN UP
+========================= */
+
+function signUp(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("signup-email").value.trim();
+  const password = document.getElementById("signup-password").value;
+  const confirmPassword = document.getElementById("confirm-password").value;
+
+  if (password !== confirmPassword) {
+    alert("Passwords do not match.");
+    return;
+  }
+
+  localStorage.setItem("rivaizLoggedIn", "true");
+  localStorage.setItem("rivaizUserName", name);
+  localStorage.setItem("rivaizUserEmail", email);
+
+  window.location.href = "dashboard.html";
+}

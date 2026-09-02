@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Plan — Rɪ'vaiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+
+    <a href="dashboard.html" class="brand">
+      <span class="logo-box">R</span>
+      <span>
+        <strong>Rɪ'vaiz</strong>
+        <small>Revise What Matters</small>
+      </span>
+    </a>
+
+    <nav class="main-nav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="study-plan.html" class="active">Study Plan</a>
+      <a href="pdf-notes.html">PDF Notes</a>
+      <a href="practice.html">Practice</a>
+      <a href="final-hour.html">Final Hour</a>
+      <a href="progress.html">Progress</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-btn" onclick="toggleTheme()">◐</button>
+      <a href="settings.html" class="user-circle">U</a>
+    </div>
+
+  </div>
+</header>
+
+
+<main class="study-plan-page">
+
+  <div class="container">
+
+    <section class="page-intro">
+      <p class="dashboard-eyebrow">SMART STUDY PLANNER</p>
+
+      <h1>
+        Tell us how much time you have.
+      </h1>
+
+      <p>
+        We'll help you decide what to study first, what to practice,
+        and what you can safely skip.
+      </p>
+    </section>
+
+
+    <section class="planner-layout">
+
+      <!-- INPUT CARD -->
+
+      <div class="planner-card">
+
+        <h2>Your preparation</h2>
+
+        <p class="planner-description">
+          Give us a few details and we'll build your priority plan.
+        </p>
+
+
+        <div class="planner-field">
+
+          <label for="subject">
+            Exam / Subject
+          </label>
+
+          <input
+            type="text"
+            id="subject"
+            placeholder="e.g. GATE Electrical Engineering"
+          >
+
+        </div>
+
+
+        <div class="planner-field">
+
+          <label for="study-time">
+            How much time do you have?
+          </label>
+
+          <select id="study-time">
+
+            <option value="">
+              Select available time
+            </option>
+
+            <option value="1">
+              1 hour
+            </option>
+
+            <option value="2">
+              2 hours
+            </option>
+
+            <option value="4">
+              4 hours
+            </option>
+
+            <option value="8">
+              8 hours
+            </option>
+
+            <option value="12">
+              12 hours
+            </option>
+
+            <option value="24">
+              24 hours
+            </option>
+
+            <option value="48">
+              2 days
+            </option>
+
+            <option value="72">
+              3 days
+            </option>
+
+            <option value="168">
+              1 week
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="planner-field">
+
+          <label>
+            Preparation level
+          </label>
+
+          <div class="level-options">
+
+            <label class="level-option">
+              <input type="radio" name="level" value="low">
+              <span>
+                <strong>Starting now</strong>
+                <small>I've barely started.</small>
+              </span>
+            </label>
+
+
+            <label class="level-option">
+              <input type="radio" name="level" value="medium">
+              <span>
+                <strong>Somewhat prepared</strong>
+                <small>I know the basics.</small>
+              </span>
+            </label>
+
+
+            <label class="level-option">
+              <input type="radio" name="level" value="high">
+              <span>
+                <strong>Mostly prepared</strong>
+                <small>I need focused revision.</small>
+              </span>
+            </label>
+
+          </div>
+
+        </div>
+
+
+        <button
+          class="planner-button"
+          onclick="generateStudyPlan()"
+        >
+          Generate My Study Plan →
+        </button>
+
+      </div>
+
+
+      <!-- RESULT CARD -->
+
+      <div class="planner-result">
+
+        <div class="result-empty" id="result-empty">
+
+          <div class="result-icon">
+            ✦
+          </div>
+
+          <h2>
+            Your plan will appear here
+          </h2>
+
+          <p>
+            Enter your available time and preparation level
+            to create a focused revision plan.
+          </p>
+
+        </div>
+
+
+        <div
+          class="result-content"
+          id="result-content"
+          style="display: none;"
+        >
+
+          <span class="result-label">
+            YOUR PRIORITY PLAN
+          </span>
+
+          <h2 id="plan-title">
+            Your Study Plan
+          </h2>
+
+          <p id="plan-summary"></p>
+
+
+          <div class="plan-list">
+
+            <div class="plan-item">
+
+              <span>01</span>
+
+              <div>
+                <strong>High-priority topics</strong>
+                <p>
+                  Focus on concepts with the highest value first.
+                </p>
+              </div>
+
+            </div>
+
+
+            <div class="plan-item">
+
+              <span>02</span>
+
+              <div>
+                <strong>Practice questions</strong>
+                <p>
+                  Test your understanding with targeted questions.
+                </p>
+              </div>
+
+            </div>
+
+
+            <div class="plan-item">
+
+              <span>03</span>
+
+              <div>
+                <strong>Quick revision</strong>
+                <p>
+                  Finish by recalling formulas, facts and weak areas.
+                </p>
+              </div>
+
+            </div>
+
+
+            <div class="plan-item skip-item">
+
+              <span>04</span>
+
+              <div>
+                <strong>What to skip</strong>
+                <p>
+                  Avoid spending your limited time on low-value material.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <a
+            href="practice.html"
+            class="planner-next"
+          >
+            Practice Important Questions →
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</main>
+
+
+<footer class="simple-footer">
+  <p>© 2026 Rɪ'vaiz · Revise What Matters.</p>
+</footer>
+
+
+<script src="script.js"></script>
+
+<script>
+
+function generateStudyPlan() {
+
+  const subject =
+    document.getElementById("subject").value.trim();
+
+  const time =
+    document.getElementById("study-time").value;
+
+  const level =
+    document.querySelector('input[name="level"]:checked');
+
+
+  if (!subject) {
+    alert("Please enter your exam or subject.");
+    return;
+  }
+
+
+  if (!time) {
+    alert("Please select how much time you have.");
+    return;
+  }
+
+
+  if (!level) {
+    alert("Please select your preparation level.");
+    return;
+  }
+
+
+  const hours = Number(time);
+
+  let planTitle = "";
+  let summary = "";
+
+
+  if (hours <= 1) {
+
+    planTitle = "Your 1-Hour Rescue Plan";
+
+    summary =
+      "Focus only on the highest-value concepts, important formulas and targeted questions. Avoid starting large new topics.";
+
+  } else if (hours <= 4) {
+
+    planTitle = "Your 4-Hour Priority Plan";
+
+    summary =
+      "Use your time for high-priority topics first, followed by practice and a final recall session.";
+
+  } else if (hours <= 12) {
+
+    planTitle = "Your Focused Revision Plan";
+
+    summary =
+      "You have enough time for priority topics, targeted practice and a structured final revision.";
+
+  } else {
+
+    planTitle = "Your Extended Study Plan";
+
+    summary =
+      "Build your preparation around high-value topics, practice questions, weak areas and repeated revision.";
+
+  }
+
+
+  document.getElementById("plan-title").textContent =
+    planTitle;
+
+  document.getElementById("plan-summary").textContent =
+    summary;
+
+
+  document.getElementById("result-empty").style.display =
+    "none";
+
+  document.getElementById("result-content").style.display =
+    "block";
+
+}
+
+</script>
+
+</body>
+</html>

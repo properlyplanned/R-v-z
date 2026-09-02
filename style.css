@@ -1990,3 +1990,127 @@ body.dark-mode .pressure-box {
   }
 
 }
+/* =========================
+   FINAL DASHBOARD LAYOUT FIX
+========================= */
+
+body {
+  margin: 0;
+  min-width: 0;
+}
+
+.dashboard-page {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dashboard-page > .container {
+  width: 1200px !important;
+  max-width: calc(100% - 48px) !important;
+  margin: 0 auto !important;
+  box-sizing: border-box;
+}
+
+
+/* Header */
+
+.site-header {
+  width: 100%;
+}
+
+.site-header .container {
+  width: 1200px !important;
+  max-width: calc(100% - 48px) !important;
+  margin: 0 auto !important;
+  box-sizing: border-box;
+}
+
+.nav-wrap {
+  min-height: 72px;
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* Navigation */
+
+.main-nav {
+  display: flex !important;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+  justify-content: center;
+}
+
+.main-nav a {
+  display: inline-block;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: var(--primary);
+}
+
+
+/* Dashboard Welcome */
+
+.dashboard-welcome {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* Exam */
+
+.dashboard-exam-card {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* Quick Actions */
+
+.dashboard-tools {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* Panels */
+
+.dashboard-grid {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* Mobile */
+
+@media (max-width: 900px) {
+
+  .dashboard-page > .container,
+  .site-header .container {
+    width: calc(100% - 32px) !important;
+    max-width: none !important;
+  }
+
+  .main-nav {
+    display: none !important;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .dashboard-page > .container,
+  .site-header .container {
+    width: calc(100% - 24px) !important;
+  }
+
+}

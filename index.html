@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rɪˈvʌɪz — Revise What Matters</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8f7fc;
+            color: #17151f;
+        }
+
+        header {
+            padding: 25px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            line-height: 1.05;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #7047eb;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #66616f;
+            margin-bottom: 35px;
+            line-height: 1.6;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 16px 30px;
+            background: #7047eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        .countdown {
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .time-card {
+            background: white;
+            padding: 20px;
+            width: 120px;
+            border-radius: 18px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+        }
+
+        .time-card strong {
+            display: block;
+            font-size: 32px;
+            color: #7047eb;
+        }
+
+        .time-card small {
+            color: #777;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .time-card {
+                width: 90px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Rɪˈvʌɪz</div>
+</header>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            Your exam is close.<br>
+            <span>Revise what matters.</span>
+        </h1>
+
+        <p>
+            Tell Rɪˈvʌɪz how much time you have.
+            We'll help you decide what to study,
+            what to skip, and what to practice.
+        </p>
+
+        <a href="#" class="button">
+            Start My Preparation
+        </a>
+
+        <div class="countdown">
+
+            <div class="time-card">
+                <strong id="days">07</strong>
+                <small>Days</small>
+            </div>
+
+            <div class="time-card">
+                <strong id="hours">12</strong>
+                <small>Hours</small>
+            </div>
+
+            <div class="time-card">
+                <strong id="minutes">45</strong>
+                <small>Minutes</small>
+            </div>
+
+            <div class="time-card">
+                <strong id="seconds">36</strong>
+                <small>Seconds</small>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+
+    // Temporary exam date.
+    // We'll later let the student choose this themselves.
+
+    const examDate = new Date("2026-09-10T09:00:00").getTime();
+
+    function updateCountdown() {
+
+        const now = new Date().getTime();
+        const difference = examDate - now;
+
+        if (difference <= 0) {
+            document.getElementById("days").textContent = "00";
+            document.getElementById("hours").textContent = "00";
+            document.getElementById("minutes").textContent = "00";
+            document.getElementById("seconds").textContent = "00";
+            return;
+        }
+
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+            (difference / (1000 * 60 * 60)) % 24
+        );
+        const minutes = Math.floor(
+            (difference / (1000 * 60)) % 60
+        );
+        const seconds = Math.floor(
+            (difference / 1000) % 60
+        );
+
+        document.getElementById("days").textContent =
+            String(days).padStart(2, "0");
+
+        document.getElementById("hours").textContent =
+            String(hours).padStart(2, "0");
+
+        document.getElementById("minutes").textContent =
+            String(minutes).padStart(2, "0");
+
+        document.getElementById("seconds").textContent =
+            String(seconds).padStart(2, "0");
+    }
+
+    updateCountdown();
+
+    setInterval(updateCountdown, 1000);
+
+</script>
+
+</body>
+</html>

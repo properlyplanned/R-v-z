@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PDF Notes — Rɪ'vaiz</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header class="site-header">
+
+    <div class="container nav-wrap">
+
+      <a href="dashboard.html" class="brand">
+
+        <span class="logo-box">R</span>
+
+        <span>
+          <strong>Rɪ'vaiz</strong>
+          <small>Revise What Matters</small>
+        </span>
+
+      </a>
+
+
+      <nav class="main-nav">
+
+        <a href="dashboard.html">
+          Dashboard
+        </a>
+
+        <a href="study-plan.html">
+          Study Plan
+        </a>
+
+        <a href="pdf-notes.html" class="active">
+          PDF Notes
+        </a>
+
+        <a href="practice.html">
+          Practice
+        </a>
+
+        <a href="final-hour.html">
+          Final Hour
+        </a>
+
+        <a href="progress.html">
+          Progress
+        </a>
+
+      </nav>
+
+
+      <div class="header-actions">
+
+        <button
+          class="theme-btn"
+          onclick="toggleTheme()"
+          aria-label="Toggle theme"
+        >
+          ◐
+        </button>
+
+        <a href="settings.html" class="user-circle">
+          U
+        </a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- =========================
+       PDF NOTES PAGE
+  ========================== -->
+
+  <main class="pdf-notes-page">
+
+    <div class="container">
+
+
+      <!-- INTRO -->
+
+      <section class="page-intro">
+
+        <p class="dashboard-eyebrow">
+          NOTES FROM PDF
+        </p>
+
+        <h1>
+          Turn long notes into smart revision.
+        </h1>
+
+        <p>
+          Upload your study material and focus on the key points,
+          important concepts and questions that matter most.
+        </p>
+
+      </section>
+
+
+
+      <!-- UPLOAD AREA -->
+
+      <section class="pdf-upload-card">
+
+        <div class="upload-icon">
+          📄
+        </div>
+
+        <h2>
+          Upload your PDF
+        </h2>
+
+        <p>
+          Drop your notes here or choose a PDF from your device.
+        </p>
+
+
+        <label
+          for="pdf-file"
+          class="upload-button"
+        >
+          Choose PDF
+        </label>
+
+
+        <input
+          type="file"
+          id="pdf-file"
+          accept=".pdf,application/pdf"
+          hidden
+          onchange="handlePDFUpload(event)"
+        >
+
+
+        <p class="upload-limit">
+          PDF files only
+        </p>
+
+      </section>
+
+
+
+      <!-- FILE PREVIEW -->
+
+      <section
+        class="pdf-file-card"
+        id="pdf-file-card"
+        style="display: none;"
+      >
+
+        <div class="file-details">
+
+          <div class="file-icon">
+            📄
+          </div>
+
+          <div>
+
+            <strong id="pdf-file-name">
+              Document.pdf
+            </strong>
+
+            <span id="pdf-file-size">
+              0 MB
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <button
+          class="remove-file"
+          onclick="removePDF()"
+        >
+          Remove
+        </button>
+
+      </section>
+
+
+
+      <!-- PROCESSING OPTIONS -->
+
+      <section
+        class="pdf-options"
+        id="pdf-options"
+        style="display: none;"
+      >
+
+        <div class="pdf-options-header">
+
+          <div>
+
+            <p class="dashboard-eyebrow">
+              WHAT DO YOU WANT?
+            </p>
+
+            <h2>
+              Choose your revision output
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        <div class="output-grid">
+
+
+          <button
+            class="output-card"
+            onclick="generatePDFOutput('summary')"
+          >
+
+            <span class="output-icon purple">
+              ✦
+            </span>
+
+            <strong>
+              Smart Summary
+            </strong>
+
+            <small>
+              Condense the document into easy-to-revise notes.
+            </small>
+
+          </button>
+
+
+
+          <button
+            class="output-card"
+            onclick="generatePDFOutput('keypoints')"
+          >
+
+            <span class="output-icon coral">
+              ✓
+            </span>
+
+            <strong>
+              Key Points
+            </strong>
+
+            <small>
+              Extract the concepts and facts worth remembering.
+            </small>
+
+          </button>
+
+
+
+          <button
+            class="output-card"
+            onclick="generatePDFOutput('questions')"
+          >
+
+            <span class="output-icon purple">
+              ?
+            </span>
+
+            <strong>
+              Important Questions
+            </strong>
+
+            <small>
+              Create likely questions from your study material.
+            </small>
+
+          </button>
+
+
+
+          <button
+            class="output-card"
+            onclick="generatePDFOutput('all')"
+          >
+
+            <span class="output-icon coral">
+              ⚡
+            </span>
+
+            <strong>
+              Exam Ready Pack
+            </strong>
+
+            <small>
+              Summary, key points and practice questions together.
+            </small>
+
+          </button>
+
+
+        </div>
+
+      </section>
+
+
+
+      <!-- RESULT -->
+
+      <section
+        class="pdf-result"
+        id="pdf-result"
+        style="display: none;"
+      >
+
+        <div class="result-header">
+
+          <div>
+
+            <span class="result-label">
+              YOUR REVISION MATERIAL
+            </span>
+
+            <h2 id="pdf-result-title">
+              Smart Summary
+            </h2>
+
+          </div>
+
+          <button
+            class="result-reset"
+            onclick="resetPDF()"
+          >
+            Start Over
+          </button>
+
+        </div>
+
+
+        <div class="result-box">
+
+          <div class="result-placeholder-icon">
+            ✦
+          </div>
+
+          <h3>
+            Your revision content is ready to generate.
+          </h3>
+
+          <p id="pdf-result-message">
+            Rɪ'vaiz will use your selected PDF to create
+            focused revision material.
+          </p>
+
+
+          <div class="result-actions">
+
+            <a
+              href="practice.html"
+              class="result-action primary"
+            >
+              Practice Questions →
+            </a>
+
+            <a
+              href="final-hour.html"
+              class="result-action secondary"
+            >
+              Final Hour Revision →
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+    </div>
+
+  </main>
+
+
+
+  <!-- FOOTER -->
+
+  <footer class="simple-footer">
+
+    <p>
+      © 2026 Rɪ'vaiz · Revise What Matters.
+    </p>
+
+  </footer>
+
+
+
+  <script src="script.js"></script>
+
+
+  <script>
+
+    /* =========================
+       PDF UPLOAD
+    ========================== */
+
+    function handlePDFUpload(event) {
+
+      const file = event.target.files[0];
+
+      if (!file) {
+        return;
+      }
+
+
+      if (file.type !== "application/pdf") {
+
+        alert("Please choose a PDF file.");
+
+        event.target.value = "";
+
+        return;
+      }
+
+
+      const fileName =
+        document.getElementById("pdf-file-name");
+
+      const fileSize =
+        document.getElementById("pdf-file-size");
+
+
+      const sizeMB =
+        (file.size / (1024 * 1024)).toFixed(2);
+
+
+      fileName.textContent =
+        file.name;
+
+      fileSize.textContent =
+        sizeMB + " MB";
+
+
+      document.getElementById("pdf-file-card")
+        .style.display = "flex";
+
+      document.getElementById("pdf-options")
+        .style.display = "block";
+
+    }
+
+
+
+    /* =========================
+       REMOVE PDF
+    ========================== */
+
+    function removePDF() {
+
+      document.getElementById("pdf-file").value = "";
+
+      document.getElementById("pdf-file-card")
+        .style.display = "none";
+
+      document.getElementById("pdf-options")
+        .style.display = "none";
+
+      document.getElementById("pdf-result")
+        .style.display = "none";
+
+    }
+
+
+
+    /* =========================
+       GENERATE OUTPUT
+    ========================== */
+
+    function generatePDFOutput(type) {
+
+      const titles = {
+
+        summary:
+          "Smart Summary",
+
+        keypoints:
+          "Key Points",
+
+        questions:
+          "Important Questions",
+
+        all:
+          "Exam Ready Pack"
+
+      };
+
+
+      const messages = {
+
+        summary:
+          "Your PDF will be condensed into short, focused notes designed for quick revision.",
+
+        keypoints:
+          "The most important concepts, formulas and facts from your material will be highlighted.",
+
+        questions:
+          "Your study material will be used to create targeted questions for practice.",
+
+        all:
+          "Your complete revision pack will combine a smart summary, key points and practice questions."
+
+      };
+
+
+      document.getElementById("pdf-result-title")
+        .textContent = titles[type];
+
+
+      document.getElementById("pdf-result-message")
+        .textContent = messages[type];
+
+
+      document.getElementById("pdf-result")
+        .style.display = "block";
+
+
+      document.getElementById("pdf-result")
+        .scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
+    }
+
+
+
+    /* =========================
+       RESET
+    ========================== */
+
+    function resetPDF() {
+
+      document.getElementById("pdf-file").value = "";
+
+      document.getElementById("pdf-file-card")
+        .style.display = "none";
+
+      document.getElementById("pdf-options")
+        .style.display = "none";
+
+      document.getElementById("pdf-result")
+        .style.display = "none";
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    }
+
+  </script>
+
+</body>
+</html>

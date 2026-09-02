@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Practice — Rɪ'vaiz</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header class="site-header">
+
+    <div class="container nav-wrap">
+
+      <a href="dashboard.html" class="brand">
+
+        <span class="logo-box">R</span>
+
+        <span>
+          <strong>Rɪ'vaiz</strong>
+          <small>Revise What Matters</small>
+        </span>
+
+      </a>
+
+      <nav class="main-nav">
+
+        <a href="dashboard.html">Dashboard</a>
+        <a href="study-plan.html">Study Plan</a>
+        <a href="pdf-notes.html">PDF Notes</a>
+        <a href="practice.html" class="active">Practice</a>
+        <a href="final-hour.html">Final Hour</a>
+        <a href="progress.html">Progress</a>
+
+      </nav>
+
+      <div class="header-actions">
+
+        <button
+          class="theme-btn"
+          onclick="toggleTheme()"
+          aria-label="Toggle theme">
+          ◐
+        </button>
+
+        <a href="settings.html" class="user-circle">
+          U
+        </a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- PRACTICE PAGE -->
+
+  <main class="practice-page">
+
+    <div class="container">
+
+      <section class="page-intro">
+
+        <p class="dashboard-eyebrow">
+          SMART PRACTICE
+        </p>
+
+        <h1>
+          Practice what matters most.
+        </h1>
+
+        <p>
+          Focus on important questions instead of wasting time
+          solving everything.
+        </p>
+
+      </section>
+
+
+      <!-- PRACTICE SETUP -->
+
+      <section class="practice-setup">
+
+        <div class="setup-header">
+
+          <div>
+            <span class="result-label">
+              QUICK SETUP
+            </span>
+
+            <h2>
+              Build your practice set
+            </h2>
+
+            <p>
+              Choose the type of questions you want to practice.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="practice-options">
+
+          <button
+            class="practice-option selected"
+            onclick="selectPractice(this, 'important')">
+
+            <span class="practice-icon purple">
+              ★
+            </span>
+
+            <strong>
+              Most Important
+            </strong>
+
+            <small>
+              Focus on high-priority exam questions.
+            </small>
+
+          </button>
+
+
+          <button
+            class="practice-option"
+            onclick="selectPractice(this, 'conceptual')">
+
+            <span class="practice-icon coral">
+              ?
+            </span>
+
+            <strong>
+              Conceptual
+            </strong>
+
+            <small>
+              Test your understanding of core concepts.
+            </small>
+
+          </button>
+
+
+          <button
+            class="practice-option"
+            onclick="selectPractice(this, 'numerical')">
+
+            <span class="practice-icon purple">
+              ∑
+            </span>
+
+            <strong>
+              Numerical
+            </strong>
+
+            <small>
+              Practice calculation-based questions.
+            </small>
+
+          </button>
+
+
+          <button
+            class="practice-option"
+            onclick="selectPractice(this, 'mixed')">
+
+            <span class="practice-icon coral">
+              ⚡
+            </span>
+
+            <strong>
+              Mixed Practice
+            </strong>
+
+            <small>
+              A balanced set of different question types.
+            </small>
+
+          </button>
+
+        </div>
+
+
+        <div class="question-count">
+
+          <label for="question-number">
+            Number of questions
+          </label>
+
+          <select id="question-number">
+
+            <option value="5">
+              5 questions
+            </option>
+
+            <option value="10" selected>
+              10 questions
+            </option>
+
+            <option value="15">
+              15 questions
+            </option>
+
+            <option value="20">
+              20 questions
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <button
+          class="generate-practice"
+          onclick="generatePractice()">
+
+          Start Practice →
+          
+        </button>
+
+      </section>
+
+
+      <!-- QUESTION AREA -->
+
+      <section
+        class="question-area"
+        id="question-area"
+        style="display: none;">
+
+        <div class="question-top">
+
+          <span class="result-label">
+            PRACTICE SESSION
+          </span>
+
+          <span id="question-progress">
+            Question 1 of 10
+          </span>
+
+        </div>
+
+
+        <div class="question-card">
+
+          <div class="question-number">
+            QUESTION 01
+          </div>
+
+          <h2 id="question-text">
+            Your practice question will appear here.
+          </h2>
+
+
+          <div class="answer-options">
+
+            <button onclick="selectAnswer(this)">
+              A. Option one
+            </button>
+
+            <button onclick="selectAnswer(this)">
+              B. Option two
+            </button>
+
+            <button onclick="selectAnswer(this)">
+              C. Option three
+            </button>
+
+            <button onclick="selectAnswer(this)">
+              D. Option four
+            </button>
+
+          </div>
+
+
+          <div class="question-actions">
+
+            <button
+              class="skip-question"
+              onclick="nextQuestion()">
+
+              Skip
+
+            </button>
+
+            <button
+              class="next-question"
+              onclick="nextQuestion()">
+
+              Next Question →
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- EMPTY STATE -->
+
+      <section class="practice-tip">
+
+        <div class="tip-icon">
+          ✦
+        </div>
+
+        <div>
+
+          <strong>
+            Last-minute tip
+          </strong>
+
+          <p>
+            Don't chase every question. Practice the concepts
+            most likely to help you gain marks quickly.
+          </p>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer class="simple-footer">
+
+    <p>
+      © 2026 Rɪ'vaiz · Revise What Matters.
+    </p>
+
+  </footer>
+
+
+  <script src="script.js"></script>
+
+
+  <script>
+
+    let selectedType = "important";
+    let currentQuestion = 1;
+    let totalQuestions = 10;
+
+
+    function selectPractice(button, type) {
+
+      document
+        .querySelectorAll(".practice-option")
+        .forEach(option => {
+          option.classList.remove("selected");
+        });
+
+      button.classList.add("selected");
+
+      selectedType = type;
+    }
+
+
+    function generatePractice() {
+
+      totalQuestions =
+        Number(
+          document.getElementById("question-number").value
+        );
+
+      currentQuestion = 1;
+
+      document
+        .getElementById("question-area")
+        .style.display = "block";
+
+      updateQuestion();
+
+      document
+        .getElementById("question-area")
+        .scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+    }
+
+
+    function updateQuestion() {
+
+      const questionText =
+        document.getElementById("question-text");
+
+      const progress =
+        document.getElementById("question-progress");
+
+
+      progress.textContent =
+        "Question " +
+        currentQuestion +
+        " of " +
+        totalQuestions;
+
+
+      const questions = {
+
+        important:
+          "Which concept is most important to understand before the exam?",
+
+        conceptual:
+          "Which statement best explains the core principle of this topic?",
+
+        numerical:
+          "A system has a given input and output relationship. Which method should be used to calculate the required value?",
+
+        mixed:
+          "Which of the following would be the best approach for solving an exam problem under time pressure?"
+
+      };
+
+
+      questionText.textContent =
+        questions[selectedType];
+
+    }
+
+
+    function selectAnswer(button) {
+
+      document
+        .querySelectorAll(".answer-options button")
+        .forEach(option => {
+          option.classList.remove("selected-answer");
+        });
+
+      button.classList.add("selected-answer");
+
+    }
+
+
+    function nextQuestion() {
+
+      if (currentQuestion < totalQuestions) {
+
+        currentQuestion++;
+
+        updateQuestion();
+
+        window.scrollTo({
+          top:
+            document.getElementById("question-area")
+              .offsetTop - 90,
+          behavior: "smooth"
+        });
+
+      } else {
+
+        document.getElementById("question-text")
+          .textContent =
+          "Practice session complete. Great work!";
+
+        document.querySelector(".answer-options")
+          .innerHTML =
+          "<p class='practice-complete'>You've completed your practice set. Review your weak areas before moving to Final Hour Revision.</p>";
+
+        document.querySelector(".question-actions")
+          .innerHTML =
+          '<a class="next-question" href="final-hour.html">Go to Final Hour →</a>';
+
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>

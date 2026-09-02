@@ -1,903 +1,1872 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Ri'vaiz — Revise What Matters</title>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #FAF9F6;
-      color: #18181B;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    header {
-      height: 76px;
-      background: #FFFFFF;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 42px;
-      border-bottom: 1px solid #eeeaf5;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      min-width: 180px;
-    }
-
-    .logo-mark {
-      width: 38px;
-      height: 38px;
-      border-radius: 11px;
-      background: #7C3AED;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    .logo-text {
-      font-size: 23px;
-      font-weight: 800;
-      color: #7C3AED;
-      letter-spacing: -1px;
-    }
-
-    .logo-subtitle {
-      font-size: 9px;
-      color: #6b6680;
-      margin-top: 2px;
-    }
-
-    /* NAVIGATION */
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-    }
-
-    nav a {
-      font-size: 14px;
-      color: #4b4655;
-      font-weight: 600;
-      position: relative;
-      padding: 28px 0;
-    }
-
-    nav a:hover {
-      color: #7C3AED;
-    }
-
-    nav a.active {
-      color: #7C3AED;
-    }
-
-    nav a.active::after {
-      content: "";
-      position: absolute;
-      bottom: 15px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 24px;
-      height: 3px;
-      background: #7C3AED;
-      border-radius: 10px;
-    }
-
-    /* RIGHT HEADER */
-
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      min-width: 270px;
-      justify-content: flex-end;
-    }
-
-    .search {
-      width: 145px;
-      height: 38px;
-      border: 1px solid #e7e2ed;
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      padding: 0 14px;
-      color: #8c8794;
-      font-size: 13px;
-      background: #faf9fc;
-    }
-
-    .theme {
-      width: 38px;
-      height: 38px;
-      border: 1px solid #e5dff0;
-      background: white;
-      border-radius: 12px;
-      cursor: pointer;
-      font-size: 17px;
-    }
-
-    .signin {
-      height: 38px;
-      padding: 0 18px;
-      border: 1px solid #7C3AED;
-      border-radius: 11px;
-      color: #7C3AED;
-      background: white;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .signup {
-      height: 38px;
-      padding: 0 19px;
-      border: none;
-      border-radius: 11px;
-      color: white;
-      background: #7C3AED;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .signin:hover {
-      background: #f4efff;
-    }
-
-    .signup:hover {
-      background: #6d28d9;
-    }
-
-
-    /* =========================
-       HERO SECTION
-    ========================= */
-
-    .hero {
-      max-width: 1250px;
-      min-height: calc(100vh - 76px);
-      margin: auto;
-      padding: 70px 35px 50px;
-
-      display: grid;
-      grid-template-columns: 1fr 1.05fr 0.8fr;
-      align-items: center;
-      gap: 35px;
-    }
-
-    /* LEFT */
-
-    .hero-content {
-      padding-left: 10px;
-    }
-
-    .small-label {
-      display: inline-block;
-      padding: 7px 12px;
-      border-radius: 20px;
-      background: #fff0ed;
-      color: #7C3AED;
-      font-size: 11px;
-      font-weight: 700;
-      margin-bottom: 17px;
-    }
-
-    h1 {
-      font-size: clamp(43px, 4.5vw, 62px);
-      line-height: 0.98;
-      letter-spacing: -3px;
-      margin-bottom: 20px;
-    }
-
-    h1 span {
-      color: #7C3AED;
-    }
-
-    .hero-description {
-      max-width: 430px;
-      color: #666171;
-      font-size: 16px;
-      line-height: 1.65;
-      margin-bottom: 27px;
-    }
-
-    /* BUTTONS */
-
-    .hero-buttons {
-      display: flex;
-      gap: 12px;
-    }
-
-    .primary-btn {
-      border: none;
-      background: #7C3AED;
-      color: white;
-      padding: 14px 20px;
-      border-radius: 11px;
-      font-weight: 700;
-      cursor: pointer;
-      font-size: 14px;
-      transition: 0.2s;
-    }
-
-    .primary-btn:hover {
-      background: #6d28d9;
-      transform: translateY(-2px);
-    }
-
-    .secondary-btn {
-      background: white;
-      border: 1px solid #ded7e9;
-      color: #3d3748;
-      padding: 14px 20px;
-      border-radius: 11px;
-      font-weight: 700;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    .secondary-btn:hover {
-      border-color: #7C3AED;
-      color: #7C3AED;
-    }
-
-
-    /* =========================
-       CENTER ILLUSTRATION
-    ========================= */
-
-    .student-area {
-      position: relative;
-      height: 460px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .circle-bg {
-      width: 390px;
-      height: 390px;
-      background: #f1eaff;
-      border-radius: 50%;
-      position: absolute;
-    }
-
-    .student {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-    }
-
-    .student-head {
-      width: 120px;
-      height: 120px;
-      background: #ffd8c8;
-      border-radius: 50%;
-      margin: auto;
-      position: relative;
-      border: 7px solid #18181B;
-    }
-
-    .hair {
-      width: 132px;
-      height: 82px;
-      background: #18181B;
-      border-radius: 70px 70px 30px 30px;
-      position: absolute;
-      top: -15px;
-      left: -13px;
-      z-index: 3;
-    }
-
-    .headphones-left,
-    .headphones-right {
-      width: 32px;
-      height: 55px;
-      background: #FF9B8A;
-      border: 5px solid #7C3AED;
-      position: absolute;
-      top: 32px;
-      z-index: 5;
-    }
-
-    .headphones-left {
-      left: -29px;
-      border-radius: 15px 5px 5px 15px;
-    }
-
-    .headphones-right {
-      right: -29px;
-      border-radius: 5px 15px 15px 5px;
-    }
-
-    .body {
-      width: 215px;
-      height: 155px;
-      background: #7C3AED;
-      border-radius: 90px 90px 25px 25px;
-      margin: -2px auto 0;
-      position: relative;
-    }
-
-    .book {
-      width: 185px;
-      height: 35px;
-      background: white;
-      border: 3px solid #18181B;
-      border-radius: 5px;
-      position: absolute;
-      bottom: 17px;
-      left: 15px;
-      transform: rotate(-4deg);
-    }
-
-    .laptop {
-      width: 150px;
-      height: 90px;
-      background: #FF9B8A;
-      border: 4px solid #18181B;
-      border-radius: 8px;
-      position: absolute;
-      bottom: -25px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 4;
-    }
-
-    .laptop-screen {
-      width: 125px;
-      height: 65px;
-      background: white;
-      margin: 8px auto;
-      border-radius: 3px;
-    }
-
-    .spark {
-      position: absolute;
-      color: #7C3AED;
-      font-size: 25px;
-      font-weight: bold;
-      z-index: 5;
-    }
-
-    .spark.one {
-      top: 90px;
-      left: 50px;
-    }
-
-    .spark.two {
-      right: 55px;
-      top: 125px;
-      color: #FF9B8A;
-    }
-
-    .spark.three {
-      left: 85px;
-      bottom: 65px;
-      color: #FF9B8A;
-    }
-
-
-    /* =========================
-       COUNTDOWN CARD
-    ========================= */
-
-    .countdown-card {
-      background: #fff;
-      border: 1px solid #eee6f4;
-      border-radius: 22px;
-      padding: 28px 24px;
-      box-shadow: 0 15px 45px rgba(124, 58, 237, 0.08);
-    }
-
-    .countdown-title {
-      text-align: center;
-      font-size: 11px;
-      font-weight: 800;
-      color: #7C3AED;
-      letter-spacing: 1px;
-      margin-bottom: 17px;
-    }
-
-    .countdown {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 5px;
-      text-align: center;
-    }
-
-    .time-number {
-      font-size: 27px;
-      font-weight: 800;
-      color: #FF6F61;
-    }
-
-    .time-label {
-      font-size: 8px;
-      color: #77717f;
-      margin-top: 5px;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
-
-    .exam-info {
-      margin-top: 24px;
-      padding-top: 18px;
-      border-top: 1px solid #eeeaf0;
-    }
-
-    .exam-name {
-      font-size: 14px;
-      font-weight: 800;
-      margin-bottom: 7px;
-    }
-
-    .exam-date {
-      font-size: 12px;
-      color: #77717f;
-    }
-
-    .countdown-message {
-      margin-top: 18px;
-      padding: 13px;
-      background: #fff2ef;
-      border-radius: 12px;
-      color: #7C3AED;
-      font-size: 12px;
-      font-weight: 700;
-      line-height: 1.5;
-    }
-
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 1000px) {
-
-      header {
-        padding: 0 20px;
-      }
-
-      nav {
-        gap: 15px;
-      }
-
-      nav a {
-        font-size: 12px;
-      }
-
-      .search {
-        display: none;
-      }
-
-      .hero {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .student-area {
-        order: 3;
-        grid-column: span 2;
-        height: 330px;
-      }
-
-      .countdown-card {
-        order: 2;
-      }
-    }
-
-
-    @media (max-width: 700px) {
-
-      header {
-        height: 65px;
-      }
-
-      .logo {
-        min-width: auto;
-      }
-
-      .logo-text {
-        font-size: 19px;
-      }
-
-      .logo-subtitle {
-        display: none;
-      }
-
-      nav {
-        display: none;
-      }
-
-      .header-right {
-        min-width: auto;
-      }
-
-      .theme {
-        display: none;
-      }
-
-      .signin {
-        padding: 0 12px;
-      }
-
-      .signup {
-        padding: 0 13px;
-      }
-
-      .hero {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        padding: 45px 20px;
-        gap: 35px;
-      }
-
-      .hero-content {
-        padding: 0;
-        text-align: center;
-      }
-
-      h1 {
-        font-size: 46px;
-        letter-spacing: -2px;
-      }
-
-      .hero-description {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .hero-buttons {
-        justify-content: center;
-      }
-
-      .student-area {
-        height: 290px;
-        order: 2;
-      }
-
-      .circle-bg {
-        width: 270px;
-        height: 270px;
-      }
-
-      .countdown-card {
-        order: 3;
-        max-width: 420px;
-        margin: auto;
-        width: 100%;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ri'vaiz — Revise What Matters</title>
+
+    <meta
+        name="description"
+        content="Ri'vaiz helps students prepare smarter when exam time is running out."
+    >
+
+    <style>
+
+        /* =========================================================
+           1. RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+            background: #FAF9F6;
+            color: #18181B;
+            line-height: 1.5;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =========================================================
+           2. COLOR VARIABLES
+        ========================================================= */
+
+        :root {
+            --primary: #7C3AED;
+            --primary-dark: #6525d1;
+            --accent: #FF9B8A;
+            --accent-light: #FFF0ED;
+
+            --text: #18181B;
+            --muted: #686477;
+
+            --background: #FAF9F6;
+            --white: #FFFFFF;
+
+            --border: #E9E3F2;
+
+            --purple-light: #F1EAFE;
+            --purple-soft: #F7F3FF;
+
+            --shadow:
+                0 10px 35px rgba(124, 58, 237, 0.07);
+        }
+
+
+        /* =========================================================
+           3. HEADER
+        ========================================================= */
+
+        .header {
+            width: 100%;
+            height: 82px;
+
+            background: rgba(255, 255, 255, 0.96);
+
+            border-bottom: 1px solid #EEEAF3;
+
+            display: flex;
+            align-items: center;
+
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            backdrop-filter: blur(12px);
+        }
+
+        .header-inner {
+            width: min(1380px, 94%);
+
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 25px;
+        }
+
+
+        /* =========================================================
+           4. LOGO
+        ========================================================= */
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+
+            min-width: 190px;
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+
+            background: var(--primary);
+            color: white;
+
+            border-radius: 13px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-name {
+            color: var(--primary);
+
+            font-size: 25px;
+            font-weight: 800;
+
+            line-height: 1;
+            letter-spacing: -1px;
+        }
+
+        .logo-tagline {
+            color: #665B7C;
+
+            font-size: 10px;
+            font-weight: 500;
+
+            margin-top: 4px;
+        }
+
+
+        /* =========================================================
+           5. NAVIGATION
+        ========================================================= */
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 32px;
+
+            flex: 1;
+        }
+
+        .nav a {
+            position: relative;
+
+            color: #282431;
+
+            font-size: 15px;
+            font-weight: 650;
+
+            padding: 29px 0;
+
+            transition: 0.2s ease;
+        }
+
+        .nav a:hover {
+            color: var(--primary);
+        }
+
+        .nav a.active {
+            color: var(--primary);
+        }
+
+        .nav a.active::after {
+            content: "";
+
+            position: absolute;
+
+            left: 50%;
+            bottom: 13px;
+
+            width: 27px;
+            height: 3px;
+
+            transform: translateX(-50%);
+
+            background: var(--primary);
+
+            border-radius: 10px;
+        }
+
+
+        /* =========================================================
+           6. HEADER RIGHT
+        ========================================================= */
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .search-box {
+            width: 145px;
+            height: 43px;
+
+            border: 1px solid var(--border);
+
+            background: #FBFAFD;
+
+            border-radius: 22px;
+
+            display: flex;
+            align-items: center;
+
+            padding: 0 15px;
+
+            gap: 8px;
+        }
+
+        .search-icon {
+            font-size: 15px;
+            opacity: 0.7;
+        }
+
+        .search-box input {
+            width: 100%;
+
+            border: none;
+            outline: none;
+
+            background: transparent;
+
+            color: var(--text);
+
+            font-size: 14px;
+        }
+
+        .search-box input::placeholder {
+            color: #8D8795;
+        }
+
+
+        /* Theme button */
+
+        .theme-button {
+            width: 43px;
+            height: 43px;
+
+            border-radius: 12px;
+
+            border: 1px solid var(--border);
+
+            background: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 18px;
+
+            transition: 0.2s;
+        }
+
+        .theme-button:hover {
+            background: var(--purple-soft);
+        }
+
+
+        /* Sign in */
+
+        .sign-in {
+            height: 43px;
+
+            padding: 0 20px;
+
+            border-radius: 12px;
+
+            border: 1.5px solid var(--primary);
+
+            background: white;
+
+            color: var(--primary);
+
+            font-weight: 700;
+
+            transition: 0.2s;
+        }
+
+        .sign-in:hover {
+            background: var(--purple-soft);
+        }
+
+
+        /* Sign up */
+
+        .sign-up {
+            height: 43px;
+
+            padding: 0 21px;
+
+            border-radius: 12px;
+
+            border: 1.5px solid var(--primary);
+
+            background: var(--primary);
+
+            color: white;
+
+            font-weight: 700;
+
+            transition: 0.2s;
+        }
+
+        .sign-up:hover {
+            background: var(--primary-dark);
+        }
+
+
+        /* =========================================================
+           7. HERO
+        ========================================================= */
+
+        .hero {
+            width: min(1380px, 94%);
+
+            margin: auto;
+
+            min-height: 500px;
+
+            display: grid;
+
+            grid-template-columns: 1.1fr 0.9fr;
+
+            align-items: center;
+
+            gap: 35px;
+
+            padding: 35px 35px 25px;
+        }
+
+
+        /* =========================================================
+           8. HERO LEFT
+        ========================================================= */
+
+        .hero-content {
+            padding-left: 10px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+
+            background: var(--accent-light);
+
+            color: #E75F50;
+
+            padding: 8px 15px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            max-width: 650px;
+
+            font-size: clamp(45px, 5vw, 67px);
+
+            line-height: 0.98;
+
+            letter-spacing: -3px;
+
+            font-weight: 850;
+
+            margin-bottom: 25px;
+        }
+
+        .hero-title .highlight {
+            color: var(--accent);
+        }
+
+        .hero-description {
+            max-width: 580px;
+
+            color: var(--muted);
+
+            font-size: 17px;
+
+            line-height: 1.65;
+
+            margin-bottom: 27px;
+        }
+
+
+        /* =========================================================
+           9. HERO BUTTONS
+        ========================================================= */
+
+        .hero-buttons {
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+        }
+
+        .primary-button {
+            min-height: 49px;
+
+            padding: 0 25px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background: var(--primary);
+
+            color: white;
+
+            font-size: 15px;
+            font-weight: 750;
+
+            transition: 0.2s;
+        }
+
+        .primary-button:hover {
+            background: var(--primary-dark);
+
+            transform: translateY(-1px);
+        }
+
+        .secondary-button {
+            min-height: 49px;
+
+            padding: 0 25px;
+
+            border: 1px solid #DDD6E8;
+
+            border-radius: 12px;
+
+            background: white;
+
+            color: var(--text);
+
+            font-size: 15px;
+            font-weight: 700;
+
+            transition: 0.2s;
+        }
+
+        .secondary-button:hover {
+            border-color: var(--primary);
+
+            color: var(--primary);
+        }
+
+
+        /* =========================================================
+           10. COUNTDOWN AREA
+        ========================================================= */
+
+        .countdown-wrapper {
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+        }
+
+        .countdown-card {
+            width: 100%;
+            max-width: 600px;
+
+            background: white;
+
+            border: 1px solid #EAE3F2;
+
+            border-radius: 27px;
+
+            padding: 35px 38px 30px;
+
+            box-shadow:
+                0 18px 50px rgba(124, 58, 237, 0.08);
+        }
+
+        .countdown-heading {
+            text-align: center;
+
+            color: var(--primary);
+
+            font-size: 17px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 27px;
+        }
+
+        .timer {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 15px;
+
+            text-align: center;
+        }
+
+        .time-number {
+            color: var(--accent);
+
+            font-size: clamp(37px, 4vw, 52px);
+
+            line-height: 1;
+
+            font-weight: 850;
+
+            letter-spacing: -2px;
+        }
+
+        .time-label {
+            margin-top: 8px;
+
+            color: #77717F;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+        }
+
+
+        /* Divider */
+
+        .countdown-divider {
+            width: 100%;
+            height: 1px;
+
+            background: #EEEAF1;
+
+            margin: 28px 0 23px;
+        }
+
+
+        /* Exam information */
+
+        .exam-info {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 5px;
+        }
+
+        .exam-title {
+            display: flex;
+            align-items: center;
+
+            gap: 10px;
+
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .exam-icon {
+            font-size: 18px;
+        }
+
+        .exam-date {
+            color: #77717F;
+
+            font-size: 14px;
+        }
+
+
+        /* Countdown message */
+
+        .countdown-message {
+            margin-top: 20px;
+
+            background: var(--accent-light);
+
+            border-radius: 15px;
+
+            padding: 15px 18px;
+
+            color: var(--primary);
+
+            font-size: 14px;
+
+            font-weight: 700;
+        }
+
+
+        /* =========================================================
+           11. QUICK FEATURES
+        ========================================================= */
+
+        .quick-features {
+            width: min(1380px, 94%);
+
+            margin: 0 auto 20px;
+
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 17px;
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            overflow: hidden;
+        }
+
+        .quick-feature {
+            min-height: 112px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 14px;
+
+            padding: 20px 25px;
+
+            border-right: 1px solid #EEEAF1;
+        }
+
+        .quick-feature:last-child {
+            border-right: none;
+        }
+
+        .quick-icon {
+            width: 42px;
+            height: 42px;
+
+            flex-shrink: 0;
+
+            border-radius: 12px;
+
+            background: var(--purple-soft);
+
+            color: var(--primary);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 20px;
+        }
+
+        .quick-title {
+            font-size: 13px;
+            font-weight: 800;
+
+            margin-bottom: 3px;
+        }
+
+        .quick-text {
+            color: #77717F;
+
+            font-size: 11px;
+
+            line-height: 1.4;
+        }
+
+
+        /* =========================================================
+           12. EVERYTHING SECTION
+        ========================================================= */
+
+        .everything {
+            width: min(1380px, 94%);
+
+            margin: 0 auto 50px;
+
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 17px;
+
+            padding: 25px;
+        }
+
+        .section-heading {
+            margin-bottom: 18px;
+
+            font-size: 17px;
+
+            font-weight: 750;
+
+            color: #292431;
+        }
+
+        .section-heading span {
+            color: var(--primary);
+        }
+
+        .feature-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 13px;
+        }
+
+        .feature-card {
+            border: 1px solid #EEEAF2;
+
+            background: #FCFBFE;
+
+            border-radius: 12px;
+
+            padding: 19px;
+
+            min-height: 145px;
+
+            transition: 0.2s;
+        }
+
+        .feature-card:hover {
+            border-color: #DCCBFA;
+
+            transform: translateY(-2px);
+
+            box-shadow: var(--shadow);
+        }
+
+        .feature-icon {
+            width: 38px;
+            height: 38px;
+
+            border-radius: 10px;
+
+            background: var(--purple-light);
+
+            color: var(--primary);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 18px;
+
+            margin-bottom: 13px;
+        }
+
+        .feature-card:nth-child(2) .feature-icon {
+            background: var(--accent-light);
+
+            color: #E85C70;
+        }
+
+        .feature-card:nth-child(3) .feature-icon {
+            background: #F2EDFF;
+
+            color: var(--primary);
+        }
+
+        .feature-card:nth-child(4) .feature-icon {
+            background: #FFEAF2;
+
+            color: #E54E87;
+        }
+
+        .feature-card h3 {
+            font-size: 14px;
+
+            margin-bottom: 5px;
+        }
+
+        .feature-card p {
+            color: #77717F;
+
+            font-size: 11px;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================================================
+           13. FOOTER
+        ========================================================= */
+
+        footer {
+            border-top: 1px solid var(--border);
+
+            padding: 25px;
+
+            text-align: center;
+
+            color: #817A8C;
+
+            font-size: 12px;
+
+            background: white;
+        }
+
+
+        /* =========================================================
+           14. DARK MODE
+        ========================================================= */
+
+        body.dark {
+            --background: #121016;
+            --white: #1A171F;
+
+            --text: #F7F5FA;
+            --muted: #B8B0C2;
+
+            --border: #302A37;
+
+            --purple-soft: #241C30;
+            --purple-light: #2C2140;
+
+            background: var(--background);
+
+            color: var(--text);
+        }
+
+        body.dark .header,
+        body.dark .countdown-card,
+        body.dark .quick-features,
+        body.dark .everything,
+        body.dark footer,
+        body.dark .secondary-button,
+        body.dark .theme-button {
+            background: #1A171F;
+            border-color: #302A37;
+        }
+
+        body.dark .nav a {
+            color: #E7E1EC;
+        }
+
+        body.dark .search-box {
+            background: #211D26;
+            border-color: #302A37;
+        }
+
+        body.dark .search-box input {
+            color: white;
+        }
+
+        body.dark .feature-card {
+            background: #211D26;
+            border-color: #302A37;
+        }
+
+        body.dark .quick-feature {
+            border-color: #302A37;
+        }
+
+        body.dark .exam-date,
+        body.dark .time-label,
+        body.dark .quick-text,
+        body.dark .feature-card p {
+            color: #AAA1B5;
+        }
+
+        body.dark .countdown-divider {
+            background: #302A37;
+        }
+
+
+        /* =========================================================
+           15. MOBILE MENU BUTTON
+        ========================================================= */
+
+        .mobile-menu {
+            display: none;
+
+            width: 42px;
+            height: 42px;
+
+            border: 1px solid var(--border);
+
+            background: white;
+
+            border-radius: 11px;
+
+            font-size: 20px;
+        }
+
+
+        /* =========================================================
+           16. RESPONSIVE — TABLET
+        ========================================================= */
+
+        @media (max-width: 1050px) {
+
+            .nav {
+                gap: 18px;
+            }
+
+            .nav a {
+                font-size: 13px;
+            }
+
+            .search-box {
+                width: 110px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+
+                padding-top: 35px;
+
+                gap: 25px;
+            }
+
+            .hero-content {
+                text-align: center;
+
+                padding-left: 0;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .countdown-card {
+                max-width: 650px;
+            }
+
+            .quick-features,
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .quick-feature:nth-child(2) {
+                border-right: none;
+            }
+
+            .quick-feature:nth-child(-n+2) {
+                border-bottom: 1px solid #EEEAF1;
+            }
+        }
+
+
+        /* =========================================================
+           17. RESPONSIVE — MOBILE
+        ========================================================= */
+
+        @media (max-width: 760px) {
+
+            .header {
+                height: 70px;
+            }
+
+            .header-inner {
+                width: 92%;
+            }
+
+            .logo {
+                min-width: auto;
+            }
+
+            .logo-name {
+                font-size: 21px;
+            }
+
+            .logo-tagline {
+                display: none;
+            }
+
+            .nav,
+            .search-box,
+            .sign-in {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+
+                align-items: center;
+                justify-content: center;
+            }
+
+            .header-actions {
+                margin-left: auto;
+            }
+
+            .hero {
+                width: 94%;
+
+                padding: 35px 10px 20px;
+
+                min-height: auto;
+            }
+
+            .hero-title {
+                font-size: 43px;
+
+                letter-spacing: -2px;
+            }
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+
+                width: 100%;
+            }
+
+            .primary-button,
+            .secondary-button {
+                width: 100%;
+            }
+
+            .countdown-card {
+                padding: 27px 18px 23px;
+
+                border-radius: 20px;
+            }
+
+            .countdown-heading {
+                font-size: 14px;
+            }
+
+            .timer {
+                gap: 5px;
+            }
+
+            .time-number {
+                font-size: 31px;
+            }
+
+            .time-label {
+                font-size: 8px;
+            }
+
+            .exam-title {
+                font-size: 16px;
+            }
+
+            .quick-features,
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-feature {
+                border-right: none;
+
+                border-bottom: 1px solid #EEEAF1;
+            }
+
+            .quick-feature:last-child {
+                border-bottom: none;
+            }
+
+            .everything {
+                padding: 18px;
+            }
+        }
+
+    </style>
 </head>
+
 
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================== -->
 
-  <header>
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
 
-    <a href="index.html" class="logo">
-      <div class="logo-mark">R</div>
+    <header class="header">
 
-      <div>
-        <div class="logo-text">Ri'vaiz</div>
-        <div class="logo-subtitle">Revise What Matters</div>
-      </div>
-    </a>
+        <div class="header-inner">
 
 
-    <nav>
+            <!-- LOGO -->
 
-      <a href="index.html" class="active">Home</a>
+            <a href="index.html" class="logo">
 
-      <a href="study-plan.html">
-        Study Plan
-      </a>
+                <div class="logo-icon">
+                    R
+                </div>
 
-      <a href="pdf-notes.html">
-        PDF Notes
-      </a>
+                <div class="logo-text">
 
-      <a href="practice.html">
-        Practice
-      </a>
+                    <div class="logo-name">
+                        Ri'vaiz
+                    </div>
 
-      <a href="final-hour.html">
-        Final Hour
-      </a>
+                    <div class="logo-tagline">
+                        Revise What Matters
+                    </div>
 
-      <a href="progress.html">
-        Progress
-      </a>
+                </div>
 
-    </nav>
+            </a>
 
 
-    <div class="header-right">
+            <!-- NAVIGATION -->
 
-      <div class="search">
-        🔍 &nbsp; Search
-      </div>
+            <nav class="nav">
 
-      <button class="theme" onclick="toggleTheme()">
-        ☾
-      </button>
+                <a href="index.html" class="active">
+                    Home
+                </a>
 
-      <button class="signin"
-              onclick="window.location.href='signin.html'">
-        Sign in
-      </button>
+                <a href="study-plan.html">
+                    Study Plan
+                </a>
 
-      <button class="signup"
-              onclick="window.location.href='signup.html'">
-        Sign up
-      </button>
+                <a href="pdf-notes.html">
+                    PDF Notes
+                </a>
 
-    </div>
+                <a href="practice.html">
+                    Practice
+                </a>
 
-  </header>
+                <a href="final-hour.html">
+                    Final Hour
+                </a>
 
+                <a href="progress.html">
+                    Progress
+                </a>
 
-  <!-- =========================
-       HERO
-  ========================== -->
-
-  <main class="hero">
-
-
-    <!-- LEFT CONTENT -->
-
-    <section class="hero-content">
-
-      <div class="small-label">
-        Last-minute. Smart preparation.
-      </div>
-
-      <h1>
-        You've got time.<br>
-        <span>Let's use it right.</span>
-      </h1>
-
-      <p class="hero-description">
-        Tell Ri'vaiz how much time you have before your exam.
-        We'll help you decide what to study, what to skip,
-        what to practice and what to revise.
-      </p>
+            </nav>
 
 
-      <div class="hero-buttons">
+            <!-- HEADER ACTIONS -->
 
-        <button class="primary-btn"
-                onclick="window.location.href='signin.html'">
-          Get My Study Plan →
-        </button>
-
-        <button class="secondary-btn"
-                onclick="window.location.href='pdf-notes.html'">
-          Upload Notes
-        </button>
-
-      </div>
-
-    </section>
+            <div class="header-actions">
 
 
+                <!-- SEARCH -->
 
-    <!-- CENTER STUDENT -->
+                <div class="search-box">
 
-    <section class="student-area">
+                    <span class="search-icon">
+                        🔍
+                    </span>
 
-      <div class="circle-bg"></div>
+                    <input
+                        type="text"
+                        placeholder="Search"
+                        aria-label="Search"
+                    >
 
-      <div class="spark one">✦</div>
-      <div class="spark two">✧</div>
-      <div class="spark three">✦</div>
+                </div>
 
-      <div class="student">
 
-        <div class="student-head">
-          <div class="hair"></div>
+                <!-- DARK MODE -->
 
-          <div class="headphones-left"></div>
-          <div class="headphones-right"></div>
-        </div>
+                <button
+                    class="theme-button"
+                    id="themeButton"
+                    aria-label="Toggle dark mode"
+                >
+                    ☾
+                </button>
 
-        <div class="body">
 
-          <div class="book"></div>
+                <!-- SIGN IN -->
 
-          <div class="laptop">
-            <div class="laptop-screen"></div>
-          </div>
+                <button
+                    class="sign-in"
+                    onclick="goToLogin()"
+                >
+                    Sign in
+                </button>
+
+
+                <!-- SIGN UP -->
+
+                <button
+                    class="sign-up"
+                    onclick="goToSignup()"
+                >
+                    Sign up
+                </button>
+
+
+                <!-- MOBILE MENU -->
+
+                <button class="mobile-menu">
+                    ☰
+                </button>
+
+            </div>
 
         </div>
 
-      </div>
-
-    </section>
+    </header>
 
 
 
-    <!-- COUNTDOWN -->
+    <!-- =========================================================
+         HERO SECTION
+    ========================================================== -->
 
-    <section class="countdown-card">
-
-      <div class="countdown-title">
-        EXAM IN
-      </div>
+    <main>
 
 
-      <div class="countdown">
-
-        <div>
-          <div class="time-number" id="days">
-            07
-          </div>
-          <div class="time-label">
-            Days
-          </div>
-        </div>
+        <section class="hero">
 
 
-        <div>
-          <div class="time-number" id="hours">
-            09
-          </div>
-          <div class="time-label">
-            Hours
-          </div>
-        </div>
+            <!-- LEFT SIDE -->
+
+            <div class="hero-content">
 
 
-        <div>
-          <div class="time-number" id="minutes">
-            31
-          </div>
-          <div class="time-label">
-            Minutes
-          </div>
-        </div>
+                <div class="eyebrow">
+                    Last-minute. Smart preparation.
+                </div>
 
 
-        <div>
-          <div class="time-number" id="seconds">
-            03
-          </div>
-          <div class="time-label">
-            Seconds
-          </div>
-        </div>
+                <h1 class="hero-title">
 
-      </div>
+                    You've got time.
 
+                    <br>
 
-      <div class="exam-info">
+                    Let's use it
+                    <span class="highlight">
+                        right.
+                    </span>
 
-        <div class="exam-name">
-          🎓 GATE 2026 (EE)
-        </div>
-
-        <div class="exam-date">
-          10 September 2026 · 09:00 AM
-        </div>
-
-      </div>
+                </h1>
 
 
-      <div class="countdown-message">
-        Pressure is real.<br>
-        Plan is the power. ✦
-      </div>
+                <p class="hero-description">
 
-    </section>
+                    We tell you what to study, in what order,
+                    what to skip and what to revise.
 
-  </main>
+                    Make every minute count and prepare
+                    smarter for your exam.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <button
+                        class="primary-button"
+                        onclick="goToStudyPlan()"
+                    >
+                        Get My Study Plan →
+                    </button>
+
+
+                    <button
+                        class="secondary-button"
+                        onclick="goToPDFNotes()"
+                    >
+                        Upload Notes
+                    </button>
+
+                </div>
+
+            </div>
 
 
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================== -->
+            <!-- RIGHT SIDE — COUNTDOWN -->
 
-  <script>
-
-    /*
-      Change this date to the student's
-      actual exam date later.
-    */
-
-    const examDate = new Date(
-      "September 10, 2026 09:00:00"
-    ).getTime();
+            <div class="countdown-wrapper">
 
 
-    function updateCountdown() {
-
-      const now = new Date().getTime();
-
-      const difference = examDate - now;
+                <div class="countdown-card">
 
 
-      if (difference <= 0) {
-
-        document.getElementById("days").textContent = "00";
-        document.getElementById("hours").textContent = "00";
-        document.getElementById("minutes").textContent = "00";
-        document.getElementById("seconds").textContent = "00";
-
-        return;
-      }
+                    <div class="countdown-heading">
+                        EXAM IN
+                    </div>
 
 
-      const days = Math.floor(
-        difference / (1000 * 60 * 60 * 24)
-      );
+                    <!-- TIMER -->
 
-      const hours = Math.floor(
-        (difference / (1000 * 60 * 60)) % 24
-      );
-
-      const minutes = Math.floor(
-        (difference / (1000 * 60)) % 60
-      );
-
-      const seconds = Math.floor(
-        (difference / 1000) % 60
-      );
+                    <div class="timer">
 
 
-      document.getElementById("days").textContent =
-        String(days).padStart(2, "0");
+                        <div class="time-box">
 
-      document.getElementById("hours").textContent =
-        String(hours).padStart(2, "0");
+                            <div
+                                class="time-number"
+                                id="days"
+                            >
+                                00
+                            </div>
 
-      document.getElementById("minutes").textContent =
-        String(minutes).padStart(2, "0");
+                            <div class="time-label">
+                                Days
+                            </div>
 
-      document.getElementById("seconds").textContent =
-        String(seconds).padStart(2, "0");
-    }
-
-
-    updateCountdown();
-
-    setInterval(updateCountdown, 1000);
+                        </div>
 
 
-    function toggleTheme() {
+                        <div class="time-box">
 
-      document.body.classList.toggle("dark");
+                            <div
+                                class="time-number"
+                                id="hours"
+                            >
+                                00
+                            </div>
 
-    }
+                            <div class="time-label">
+                                Hours
+                            </div>
 
-  </script>
+                        </div>
+
+
+                        <div class="time-box">
+
+                            <div
+                                class="time-number"
+                                id="minutes"
+                            >
+                                00
+                            </div>
+
+                            <div class="time-label">
+                                Minutes
+                            </div>
+
+                        </div>
+
+
+                        <div class="time-box">
+
+                            <div
+                                class="time-number"
+                                id="seconds"
+                            >
+                                00
+                            </div>
+
+                            <div class="time-label">
+                                Seconds
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="countdown-divider"></div>
+
+
+                    <!-- EXAM DETAILS -->
+
+                    <div class="exam-info">
+
+                        <div class="exam-title">
+
+                            <span class="exam-icon">
+                                🎓
+                            </span>
+
+                            GATE 2026 (EE)
+
+                        </div>
+
+
+                        <div class="exam-date">
+                            10 September 2026 · 09:00 AM
+                        </div>
+
+                    </div>
+
+
+                    <!-- MESSAGE -->
+
+                    <div class="countdown-message">
+
+                        Pressure is real.
+                        <br>
+
+                        Plan is the power. ✦
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             QUICK FEATURES
+        ====================================================== -->
+
+        <section class="quick-features">
+
+
+            <!-- FEATURE 1 -->
+
+            <div class="quick-feature">
+
+                <div class="quick-icon">
+                    ✣
+                </div>
+
+                <div>
+
+                    <div class="quick-title">
+                        What to Study
+                    </div>
+
+                    <div class="quick-text">
+                        Focus on high value topics only.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- FEATURE 2 -->
+
+            <div class="quick-feature">
+
+                <div class="quick-icon">
+                    ⤨
+                </div>
+
+                <div>
+
+                    <div class="quick-title">
+                        In What Order
+                    </div>
+
+                    <div class="quick-text">
+                        Study sequence to maximize score.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- FEATURE 3 -->
+
+            <div class="quick-feature">
+
+                <div class="quick-icon">
+                    ◷
+                </div>
+
+                <div>
+
+                    <div class="quick-title">
+                        What to Skip
+                    </div>
+
+                    <div class="quick-text">
+                        Remove low-value topics from your plan.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- FEATURE 4 -->
+
+            <div class="quick-feature">
+
+                <div class="quick-icon">
+                    ◈
+                </div>
+
+                <div>
+
+                    <div class="quick-title">
+                        Final Hour Revision
+                    </div>
+
+                    <div class="quick-text">
+                        Revise the most important things last.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             EVERYTHING YOU NEED
+        ====================================================== -->
+
+        <section class="everything">
+
+
+            <div class="section-heading">
+
+                Everything you need,
+                <span>in one place.</span>
+
+            </div>
+
+
+            <div class="feature-grid">
+
+
+                <!-- CARD 1 -->
+
+                <a
+                    href="study-plan.html"
+                    class="feature-card"
+                >
+
+                    <div class="feature-icon">
+                        ▣
+                    </div>
+
+                    <h3>
+                        Smart Study Plan
+                    </h3>
+
+                    <p>
+                        Get a personalized study plan
+                        based on your remaining time
+                        and syllabus.
+                    </p>
+
+                </a>
+
+
+                <!-- CARD 2 -->
+
+                <a
+                    href="pdf-notes.html"
+                    class="feature-card"
+                >
+
+                    <div class="feature-icon">
+                        ▤
+                    </div>
+
+                    <h3>
+                        Notes from PDF
+                    </h3>
+
+                    <p>
+                        Upload your PDF and get
+                        concise, exam-focused notes
+                        instantly.
+                    </p>
+
+                </a>
+
+
+                <!-- CARD 3 -->
+
+                <a
+                    href="practice.html"
+                    class="feature-card"
+                >
+
+                    <div class="feature-icon">
+                        ◎
+                    </div>
+
+                    <h3>
+                        Practice Questions
+                    </h3>
+
+                    <p>
+                        Get important questions
+                        sorted according to priority.
+                    </p>
+
+                </a>
+
+
+                <!-- CARD 4 -->
+
+                <a
+                    href="final-hour.html"
+                    class="feature-card"
+                >
+
+                    <div class="feature-icon">
+                        ♧
+                    </div>
+
+                    <h3>
+                        Last Hour Revision
+                    </h3>
+
+                    <p>
+                        Quick revision notes for
+                        your final hour before the exam.
+                    </p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer>
+
+        © 2026 Ri'vaiz · Revise What Matters.
+
+    </footer>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+
+
+        /* ========================================================
+           EXAM COUNTDOWN
+        ========================================================= */
+
+        /*
+            Change this date whenever you want.
+
+            Format:
+
+            YYYY-MM-DDTHH:MM:SS
+
+            Example:
+
+            10 September 2026 at 09:00 AM
+        */
+
+        const examDate = new Date(
+            "2026-09-10T09:00:00"
+        ).getTime();
+
+
+        function updateCountdown() {
+
+            const now = new Date().getTime();
+
+            const difference = examDate - now;
+
+
+            if (difference <= 0) {
+
+                document.getElementById("days").textContent = "00";
+                document.getElementById("hours").textContent = "00";
+                document.getElementById("minutes").textContent = "00";
+                document.getElementById("seconds").textContent = "00";
+
+                return;
+            }
+
+
+            const days = Math.floor(
+                difference / (1000 * 60 * 60 * 24)
+            );
+
+
+            const hours = Math.floor(
+                (difference %
+                    (1000 * 60 * 60 * 24))
+                /
+                (1000 * 60 * 60)
+            );
+
+
+            const minutes = Math.floor(
+                (difference %
+                    (1000 * 60 * 60))
+                /
+                (1000 * 60)
+            );
+
+
+            const seconds = Math.floor(
+                (difference %
+                    (1000 * 60))
+                /
+                1000
+            );
+
+
+            document.getElementById("days").textContent =
+                String(days).padStart(2, "0");
+
+
+            document.getElementById("hours").textContent =
+                String(hours).padStart(2, "0");
+
+
+            document.getElementById("minutes").textContent =
+                String(minutes).padStart(2, "0");
+
+
+            document.getElementById("seconds").textContent =
+                String(seconds).padStart(2, "0");
+
+        }
+
+
+        updateCountdown();
+
+        setInterval(
+            updateCountdown,
+            1000
+        );
+
+
+
+        /* ========================================================
+           DARK MODE
+        ========================================================= */
+
+        const themeButton =
+            document.getElementById("themeButton");
+
+
+        themeButton.addEventListener(
+            "click",
+            function () {
+
+                document.body.classList.toggle("dark");
+
+
+                if (
+                    document.body.classList.contains("dark")
+                ) {
+
+                    themeButton.textContent = "☀";
+
+                    localStorage.setItem(
+                        "theme",
+                        "dark"
+                    );
+
+                } else {
+
+                    themeButton.textContent = "☾";
+
+                    localStorage.setItem(
+                        "theme",
+                        "light"
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* Load saved theme */
+
+        const savedTheme =
+            localStorage.getItem("theme");
+
+
+        if (savedTheme === "dark") {
+
+            document.body.classList.add("dark");
+
+            themeButton.textContent = "☀";
+
+        }
+
+
+
+        /* ========================================================
+           PAGE NAVIGATION
+        ========================================================= */
+
+        function goToStudyPlan() {
+
+            window.location.href =
+                "study-plan.html";
+
+        }
+
+
+        function goToPDFNotes() {
+
+            window.location.href =
+                "pdf-notes.html";
+
+        }
+
+
+        function goToLogin() {
+
+            window.location.href =
+                "login.html";
+
+        }
+
+
+        function goToSignup() {
+
+            window.location.href =
+                "signup.html";
+
+        }
+
+    </script>
+
 
 </body>
 </html>

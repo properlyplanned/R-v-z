@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Riˈvaiz — Revise What Matters</title>
+  <title>Ri'vaiz — Revise What Matters</title>
 
   <style>
     * {
@@ -14,7 +14,7 @@
     }
 
     body {
-      font-family: Inter, Arial, Helvetica, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       background: #FAF9F6;
       color: #18181B;
     }
@@ -24,686 +24,571 @@
       color: inherit;
     }
 
-    button {
-      font-family: inherit;
-      cursor: pointer;
-    }
-
     /* =========================
        HEADER
     ========================= */
 
     header {
-      width: 100%;
-      padding: 16px 28px;
-      background: #FAF9F6;
-    }
-
-    .navbar {
-      max-width: 1450px;
-      margin: auto;
-      height: 78px;
-
+      height: 76px;
       background: #FFFFFF;
-      border: 1px solid #E8E2F5;
-      border-radius: 22px;
-
       display: flex;
       align-items: center;
-      padding: 0 22px;
-
-      box-shadow: 0 8px 30px rgba(124, 58, 237, 0.07);
+      justify-content: space-between;
+      padding: 0 42px;
+      border-bottom: 1px solid #eeeaf5;
     }
-
-    /* LOGO */
 
     .logo {
-      min-width: 210px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 180px;
     }
 
-    .logo-name {
-      font-family: Georgia, serif;
-      font-size: 32px;
+    .logo-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
+      background: #7C3AED;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
       font-weight: bold;
-      color: #6235E8;
+    }
+
+    .logo-text {
+      font-size: 23px;
+      font-weight: 800;
+      color: #7C3AED;
       letter-spacing: -1px;
     }
 
-    .logo-tagline {
-      font-size: 12px;
-      font-weight: 600;
-      color: #4F4770;
+    .logo-subtitle {
+      font-size: 9px;
+      color: #6b6680;
       margin-top: 2px;
     }
 
     /* NAVIGATION */
 
-    .nav-links {
+    nav {
       display: flex;
       align-items: center;
-      gap: 6px;
-      flex: 1;
+      gap: 30px;
     }
 
-    .nav-links a {
-      padding: 13px 17px;
-      border-radius: 14px;
-
-      font-size: 15px;
+    nav a {
+      font-size: 14px;
+      color: #4b4655;
       font-weight: 600;
-      color: #3F3A4C;
-
-      transition: 0.2s ease;
+      position: relative;
+      padding: 28px 0;
     }
 
-    .nav-links a:hover {
-      background: #F1EBFF;
-      color: #6235E8;
+    nav a:hover {
+      color: #7C3AED;
     }
 
-    .nav-links a.active {
-      background: #F0E9FF;
-      color: #6235E8;
+    nav a.active {
+      color: #7C3AED;
     }
 
-    /* HEADER RIGHT */
+    nav a.active::after {
+      content: "";
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 24px;
+      height: 3px;
+      background: #7C3AED;
+      border-radius: 10px;
+    }
+
+    /* RIGHT HEADER */
 
     .header-right {
       display: flex;
       align-items: center;
       gap: 10px;
+      min-width: 270px;
+      justify-content: flex-end;
     }
 
     .search {
-      width: 220px;
-      height: 46px;
-
+      width: 145px;
+      height: 38px;
+      border: 1px solid #e7e2ed;
+      border-radius: 20px;
       display: flex;
       align-items: center;
-      gap: 9px;
-
-      background: #F3F1F4;
-      border-radius: 25px;
-      padding: 0 16px;
-
-      color: #77727F;
-      font-size: 14px;
+      padding: 0 14px;
+      color: #8c8794;
+      font-size: 13px;
+      background: #faf9fc;
     }
 
-    .search span {
+    .theme {
+      width: 38px;
+      height: 38px;
+      border: 1px solid #e5dff0;
+      background: white;
+      border-radius: 12px;
+      cursor: pointer;
       font-size: 17px;
     }
 
-    .theme-btn {
-      width: 46px;
-      height: 46px;
-
-      border: 1px solid #E6E0F0;
-      background: white;
-      border-radius: 14px;
-
-      font-size: 20px;
-    }
-
     .signin {
-      height: 46px;
-      padding: 0 22px;
-
-      border: 1.5px solid #6D3FF2;
+      height: 38px;
+      padding: 0 18px;
+      border: 1px solid #7C3AED;
+      border-radius: 11px;
+      color: #7C3AED;
       background: white;
-      color: #6235E8;
-
-      border-radius: 14px;
-      font-size: 14px;
       font-weight: 700;
+      cursor: pointer;
     }
 
     .signup {
-      height: 46px;
-      padding: 0 22px;
-
+      height: 38px;
+      padding: 0 19px;
       border: none;
-      background: #6837ED;
+      border-radius: 11px;
       color: white;
-
-      border-radius: 14px;
-      font-size: 14px;
+      background: #7C3AED;
       font-weight: 700;
-
-      box-shadow: 0 7px 18px rgba(104, 55, 237, 0.22);
+      cursor: pointer;
     }
 
     .signin:hover {
-      background: #F4EFFF;
+      background: #f4efff;
     }
 
     .signup:hover {
-      background: #5725D5;
+      background: #6d28d9;
     }
+
 
     /* =========================
-       MAIN
+       HERO SECTION
     ========================= */
 
-    main {
-      max-width: 1450px;
-      margin: 0 auto;
-      padding: 32px 32px 60px;
-    }
+    .hero {
+      max-width: 1250px;
+      min-height: calc(100vh - 76px);
+      margin: auto;
+      padding: 70px 35px 50px;
 
-    .welcome {
-      margin-bottom: 25px;
-    }
-
-    .welcome-small {
-      font-size: 15px;
-      font-weight: 600;
-      color: #625A72;
-      margin-bottom: 7px;
-    }
-
-    .welcome h1 {
-      font-size: 38px;
-      line-height: 1.15;
-      letter-spacing: -1.5px;
-    }
-
-    .welcome h1 span {
-      color: #6837ED;
-    }
-
-    .welcome p {
-      margin-top: 9px;
-      color: #70687F;
-      font-size: 16px;
-    }
-
-    /* =========================
-       MAIN GRID
-    ========================= */
-
-    .dashboard-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 22px;
-      align-items: stretch;
+      grid-template-columns: 1fr 1.05fr 0.8fr;
+      align-items: center;
+      gap: 35px;
     }
+
+    /* LEFT */
+
+    .hero-content {
+      padding-left: 10px;
+    }
+
+    .small-label {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 20px;
+      background: #fff0ed;
+      color: #7C3AED;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 17px;
+    }
+
+    h1 {
+      font-size: clamp(43px, 4.5vw, 62px);
+      line-height: 0.98;
+      letter-spacing: -3px;
+      margin-bottom: 20px;
+    }
+
+    h1 span {
+      color: #7C3AED;
+    }
+
+    .hero-description {
+      max-width: 430px;
+      color: #666171;
+      font-size: 16px;
+      line-height: 1.65;
+      margin-bottom: 27px;
+    }
+
+    /* BUTTONS */
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .primary-btn {
+      border: none;
+      background: #7C3AED;
+      color: white;
+      padding: 14px 20px;
+      border-radius: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .primary-btn:hover {
+      background: #6d28d9;
+      transform: translateY(-2px);
+    }
+
+    .secondary-btn {
+      background: white;
+      border: 1px solid #ded7e9;
+      color: #3d3748;
+      padding: 14px 20px;
+      border-radius: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .secondary-btn:hover {
+      border-color: #7C3AED;
+      color: #7C3AED;
+    }
+
+
+    /* =========================
+       CENTER ILLUSTRATION
+    ========================= */
+
+    .student-area {
+      position: relative;
+      height: 460px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .circle-bg {
+      width: 390px;
+      height: 390px;
+      background: #f1eaff;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .student {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .student-head {
+      width: 120px;
+      height: 120px;
+      background: #ffd8c8;
+      border-radius: 50%;
+      margin: auto;
+      position: relative;
+      border: 7px solid #18181B;
+    }
+
+    .hair {
+      width: 132px;
+      height: 82px;
+      background: #18181B;
+      border-radius: 70px 70px 30px 30px;
+      position: absolute;
+      top: -15px;
+      left: -13px;
+      z-index: 3;
+    }
+
+    .headphones-left,
+    .headphones-right {
+      width: 32px;
+      height: 55px;
+      background: #FF9B8A;
+      border: 5px solid #7C3AED;
+      position: absolute;
+      top: 32px;
+      z-index: 5;
+    }
+
+    .headphones-left {
+      left: -29px;
+      border-radius: 15px 5px 5px 15px;
+    }
+
+    .headphones-right {
+      right: -29px;
+      border-radius: 5px 15px 15px 5px;
+    }
+
+    .body {
+      width: 215px;
+      height: 155px;
+      background: #7C3AED;
+      border-radius: 90px 90px 25px 25px;
+      margin: -2px auto 0;
+      position: relative;
+    }
+
+    .book {
+      width: 185px;
+      height: 35px;
+      background: white;
+      border: 3px solid #18181B;
+      border-radius: 5px;
+      position: absolute;
+      bottom: 17px;
+      left: 15px;
+      transform: rotate(-4deg);
+    }
+
+    .laptop {
+      width: 150px;
+      height: 90px;
+      background: #FF9B8A;
+      border: 4px solid #18181B;
+      border-radius: 8px;
+      position: absolute;
+      bottom: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 4;
+    }
+
+    .laptop-screen {
+      width: 125px;
+      height: 65px;
+      background: white;
+      margin: 8px auto;
+      border-radius: 3px;
+    }
+
+    .spark {
+      position: absolute;
+      color: #7C3AED;
+      font-size: 25px;
+      font-weight: bold;
+      z-index: 5;
+    }
+
+    .spark.one {
+      top: 90px;
+      left: 50px;
+    }
+
+    .spark.two {
+      right: 55px;
+      top: 125px;
+      color: #FF9B8A;
+    }
+
+    .spark.three {
+      left: 85px;
+      bottom: 65px;
+      color: #FF9B8A;
+    }
+
 
     /* =========================
        COUNTDOWN CARD
     ========================= */
 
     .countdown-card {
-      position: relative;
-      overflow: hidden;
-
-      min-height: 455px;
-
-      background: white;
-      border: 1px solid #E4DAFA;
-      border-radius: 28px;
-
-      padding: 38px;
-
+      background: #fff;
+      border: 1px solid #eee6f4;
+      border-radius: 22px;
+      padding: 28px 24px;
       box-shadow: 0 15px 45px rgba(124, 58, 237, 0.08);
     }
 
-    .countdown-card::before {
-      content: "";
-      position: absolute;
-
-      width: 330px;
-      height: 330px;
-
-      border-radius: 50%;
-
-      background: #F0E8FF;
-
-      right: -110px;
-      top: -135px;
-
-      opacity: 0.85;
-    }
-
-    .countdown-card::after {
-      content: "";
-      position: absolute;
-
-      width: 160px;
-      height: 160px;
-
-      border-radius: 50%;
-
-      background: #FFE1D9;
-
-      right: 120px;
-      bottom: -100px;
-
-      opacity: 0.55;
-    }
-
-    .countdown-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .eyebrow {
-      color: #6837ED;
-      font-size: 13px;
+    .countdown-title {
+      text-align: center;
+      font-size: 11px;
       font-weight: 800;
-      letter-spacing: 1.5px;
+      color: #7C3AED;
+      letter-spacing: 1px;
       margin-bottom: 17px;
     }
 
-    .countdown-title {
-      font-size: 37px;
-      line-height: 1.12;
-      max-width: 600px;
-      letter-spacing: -1.4px;
-    }
-
-    .countdown-title span {
-      color: #6837ED;
-    }
-
-    .countdown-description {
-      color: #686174;
-      font-size: 16px;
-      line-height: 1.6;
-      max-width: 650px;
-      margin-top: 12px;
-    }
-
-    /* TIMER */
-
-    .timer-box {
-      margin-top: 27px;
-
-      background: #FFFFFF;
-      border: 1px solid #E3D8F8;
-
-      border-radius: 21px;
-      padding: 22px 24px;
-
-      max-width: 760px;
-    }
-
-    .timer-label {
-      color: #6837ED;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      margin-bottom: 13px;
-    }
-
-    .timer {
+    .countdown {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-    }
-
-    .time-unit {
+      gap: 5px;
       text-align: center;
     }
 
     .time-number {
-      font-size: 43px;
+      font-size: 27px;
       font-weight: 800;
-      color: #6837ED;
-      line-height: 1;
-      letter-spacing: -1px;
+      color: #FF6F61;
     }
 
     .time-label {
-      margin-top: 7px;
-      font-size: 11px;
-      color: #777080;
+      font-size: 8px;
+      color: #77717f;
+      margin-top: 5px;
+      text-transform: uppercase;
       font-weight: 700;
-      letter-spacing: 0.7px;
     }
 
     .exam-info {
-      margin-top: 20px;
-
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      flex-wrap: wrap;
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid #eeeaf0;
     }
 
     .exam-name {
-      padding: 10px 15px;
-      background: #F0E9FF;
-      color: #6837ED;
-
-      border-radius: 12px;
-
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 800;
+      margin-bottom: 7px;
     }
 
     .exam-date {
-      color: #686174;
-      font-size: 13px;
-    }
-
-    .change-btn {
-      border: none;
-      background: none;
-      color: #6837ED;
-      font-weight: 800;
-      font-size: 13px;
-    }
-
-    /* =========================
-       TODAY'S PLAN
-    ========================= */
-
-    .plan-card {
-      background: white;
-      border: 1px solid #E6E0EC;
-      border-radius: 28px;
-      padding: 28px;
-
-      box-shadow: 0 15px 45px rgba(40, 30, 70, 0.05);
-    }
-
-    .plan-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      padding-bottom: 17px;
-      border-bottom: 1px solid #EEE9F3;
-    }
-
-    .plan-header h2 {
-      font-size: 20px;
-    }
-
-    .plan-header a {
-      color: #6837ED;
-      font-size: 13px;
-      font-weight: 800;
-    }
-
-    .plan-item {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-
-      padding: 18px 0;
-
-      border-bottom: 1px solid #F0ECF3;
-    }
-
-    .plan-icon {
-      width: 42px;
-      height: 42px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 13px;
-
-      background: #F0E9FF;
-      color: #6837ED;
-
-      font-size: 18px;
-    }
-
-    .plan-item:nth-child(3) .plan-icon {
-      background: #FFF0ED;
-      color: #F26D58;
-    }
-
-    .plan-item:nth-child(4) .plan-icon {
-      background: #FFF3E5;
-      color: #E89022;
-    }
-
-    .plan-item:nth-child(5) .plan-icon {
-      background: #EAF8F0;
-      color: #27A866;
-    }
-
-    .plan-text {
-      flex: 1;
-    }
-
-    .plan-text strong {
-      display: block;
-      font-size: 14px;
-      margin-bottom: 4px;
-    }
-
-    .plan-text small {
-      color: #817A8A;
       font-size: 12px;
+      color: #77717f;
     }
 
-    .plan-time {
-      font-size: 13px;
-      color: #675F70;
-      font-weight: 600;
-    }
-
-    /* =========================
-       STATS
-    ========================= */
-
-    .section-title {
-      margin-top: 30px;
-      margin-bottom: 16px;
-      font-size: 21px;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .stat-card {
-      background: white;
-      border: 1px solid #E8E1EE;
-      border-radius: 21px;
-
-      padding: 24px;
-
-      box-shadow: 0 10px 30px rgba(40, 30, 70, 0.04);
-    }
-
-    .stat-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .stat-icon {
-      width: 42px;
-      height: 42px;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
+    .countdown-message {
+      margin-top: 18px;
+      padding: 13px;
+      background: #fff2ef;
       border-radius: 12px;
-
-      background: #F0E9FF;
-      color: #6837ED;
-
-      font-size: 19px;
+      color: #7C3AED;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.5;
     }
 
-    .stat-card h3 {
-      margin-top: 16px;
-      font-size: 29px;
-    }
-
-    .stat-card p {
-      margin-top: 4px;
-      color: #777080;
-      font-size: 13px;
-    }
-
-    .progress-bar {
-      height: 7px;
-      background: #EEEAF3;
-      border-radius: 20px;
-      margin-top: 15px;
-      overflow: hidden;
-    }
-
-    .progress-fill {
-      height: 100%;
-      width: 72%;
-      background: #6837ED;
-      border-radius: 20px;
-    }
-
-    .progress-fill.orange {
-      width: 64%;
-      background: #FF9B8A;
-    }
-
-    .progress-fill.green {
-      width: 78%;
-      background: #65C58A;
-    }
-
-    /* =========================
-       PDF BANNER
-    ========================= */
-
-    .pdf-banner {
-      margin-top: 22px;
-
-      background: #19151F;
-      color: white;
-
-      border-radius: 23px;
-      padding: 25px 30px;
-
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .pdf-banner h2 {
-      font-size: 20px;
-      margin-bottom: 5px;
-    }
-
-    .pdf-banner p {
-      color: #C5BDCC;
-      font-size: 13px;
-    }
-
-    .pdf-button {
-      border: none;
-      background: #FFFFFF;
-      color: #6837ED;
-
-      padding: 13px 21px;
-      border-radius: 12px;
-
-      font-size: 13px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
 
     /* =========================
        MOBILE
     ========================= */
 
-    @media (max-width: 1100px) {
+    @media (max-width: 1000px) {
 
-      .navbar {
-        height: auto;
-        padding: 18px;
-        flex-wrap: wrap;
+      header {
+        padding: 0 20px;
+      }
+
+      nav {
         gap: 15px;
       }
 
-      .logo {
-        min-width: auto;
-        flex: 1;
-      }
-
-      .nav-links {
-        order: 3;
-        width: 100%;
-        overflow-x: auto;
-      }
-
-      .header-right {
-        flex-wrap: wrap;
+      nav a {
+        font-size: 12px;
       }
 
       .search {
         display: none;
       }
 
-      .dashboard-grid {
-        grid-template-columns: 1fr;
+      .hero {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .student-area {
+        order: 3;
+        grid-column: span 2;
+        height: 330px;
+      }
+
+      .countdown-card {
+        order: 2;
       }
     }
+
 
     @media (max-width: 700px) {
 
       header {
-        padding: 10px;
+        height: 65px;
       }
 
-      .navbar {
-        border-radius: 17px;
+      .logo {
+        min-width: auto;
       }
 
-      .nav-links a {
-        font-size: 13px;
-        padding: 10px 12px;
-        white-space: nowrap;
+      .logo-text {
+        font-size: 19px;
       }
 
-      main {
-        padding: 25px 15px 40px;
+      .logo-subtitle {
+        display: none;
       }
 
-      .welcome h1 {
-        font-size: 30px;
+      nav {
+        display: none;
+      }
+
+      .header-right {
+        min-width: auto;
+      }
+
+      .theme {
+        display: none;
+      }
+
+      .signin {
+        padding: 0 12px;
+      }
+
+      .signup {
+        padding: 0 13px;
+      }
+
+      .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 45px 20px;
+        gap: 35px;
+      }
+
+      .hero-content {
+        padding: 0;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 46px;
+        letter-spacing: -2px;
+      }
+
+      .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .student-area {
+        height: 290px;
+        order: 2;
+      }
+
+      .circle-bg {
+        width: 270px;
+        height: 270px;
       }
 
       .countdown-card {
-        padding: 25px 20px;
-        min-height: auto;
-      }
-
-      .countdown-title {
-        font-size: 29px;
-      }
-
-      .timer {
-        gap: 4px;
-      }
-
-      .time-number {
-        font-size: 29px;
-      }
-
-      .stats {
-        grid-template-columns: 1fr;
-      }
-
-      .pdf-banner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .logo-name {
-        font-size: 27px;
+        order: 3;
+        max-width: 420px;
+        margin: auto;
+        width: 100%;
       }
     }
   </style>
@@ -713,300 +598,142 @@
 
   <!-- =========================
        HEADER
-  ========================= -->
+  ========================== -->
 
   <header>
 
-    <nav class="navbar">
+    <a href="index.html" class="logo">
+      <div class="logo-mark">R</div>
 
-      <div class="logo">
-        <div class="logo-name">Riˈvaiz</div>
-        <div class="logo-tagline">Revise What Matters</div>
+      <div>
+        <div class="logo-text">Ri'vaiz</div>
+        <div class="logo-subtitle">Revise What Matters</div>
       </div>
+    </a>
 
-      <div class="nav-links">
 
-        <a href="index.html" class="active">
-          Home
-        </a>
+    <nav>
 
-        <a href="study-plan.html">
-          Study Plan
-        </a>
+      <a href="index.html" class="active">Home</a>
 
-        <a href="pdf-notes.html">
-          PDF Notes
-        </a>
+      <a href="study-plan.html">
+        Study Plan
+      </a>
 
-        <a href="practice.html">
-          Practice
-        </a>
+      <a href="pdf-notes.html">
+        PDF Notes
+      </a>
 
-        <a href="final-hour.html">
-          Final Hour
-        </a>
+      <a href="practice.html">
+        Practice
+      </a>
 
-        <a href="progress.html">
-          Progress
-        </a>
+      <a href="final-hour.html">
+        Final Hour
+      </a>
 
-        <a href="#">
-          More⌄
-        </a>
-
-      </div>
-
-      <div class="header-right">
-
-        <div class="search">
-          <span>⌕</span>
-          <span>Search anything...</span>
-        </div>
-
-        <button class="theme-btn" onclick="toggleTheme()">
-          ☾
-        </button>
-
-        <button
-          class="signin"
-          onclick="location.href='signin.html'">
-          Sign in
-        </button>
-
-        <button
-          class="signup"
-          onclick="location.href='signup.html'">
-          Sign up
-        </button>
-
-      </div>
+      <a href="progress.html">
+        Progress
+      </a>
 
     </nav>
+
+
+    <div class="header-right">
+
+      <div class="search">
+        🔍 &nbsp; Search
+      </div>
+
+      <button class="theme" onclick="toggleTheme()">
+        ☾
+      </button>
+
+      <button class="signin"
+              onclick="window.location.href='signin.html'">
+        Sign in
+      </button>
+
+      <button class="signup"
+              onclick="window.location.href='signup.html'">
+        Sign up
+      </button>
+
+    </div>
 
   </header>
 
 
   <!-- =========================
-       MAIN DASHBOARD
-  ========================= -->
+       HERO
+  ========================== -->
 
-  <main>
+  <main class="hero">
 
-    <section class="welcome">
 
-      <div class="welcome-small">
-        Welcome back! 👋
+    <!-- LEFT CONTENT -->
+
+    <section class="hero-content">
+
+      <div class="small-label">
+        Last-minute. Smart preparation.
       </div>
 
       <h1>
-        Your exam is close.<br>
-        <span>Revise what matters.</span>
+        You've got time.<br>
+        <span>Let's use it right.</span>
       </h1>
 
-      <p>
-        Stay focused. Let Riˈvaiz decide what deserves your time.
+      <p class="hero-description">
+        Tell Ri'vaiz how much time you have before your exam.
+        We'll help you decide what to study, what to skip,
+        what to practice and what to revise.
       </p>
 
-    </section>
 
+      <div class="hero-buttons">
 
-    <!-- MAIN TWO COLUMN AREA -->
+        <button class="primary-btn"
+                onclick="window.location.href='signin.html'">
+          Get My Study Plan →
+        </button>
 
-    <section class="dashboard-grid">
-
-
-      <!-- COUNTDOWN -->
-
-      <div class="countdown-card">
-
-        <div class="countdown-content">
-
-          <div class="eyebrow">
-            EXAM COUNTDOWN
-          </div>
-
-          <h2 class="countdown-title">
-            Every minute<br>
-            <span>can change your result.</span>
-          </h2>
-
-          <p class="countdown-description">
-            Tell Riˈvaiz how much time you have.
-            We'll help you decide what to study,
-            what to skip and what to practice.
-          </p>
-
-
-          <div class="timer-box">
-
-            <div class="timer-label">
-              EXAM IN
-            </div>
-
-            <div class="timer">
-
-              <div class="time-unit">
-                <div class="time-number" id="days">
-                  07
-                </div>
-                <div class="time-label">
-                  DAYS
-                </div>
-              </div>
-
-              <div class="time-unit">
-                <div class="time-number" id="hours">
-                  09
-                </div>
-                <div class="time-label">
-                  HOURS
-                </div>
-              </div>
-
-              <div class="time-unit">
-                <div class="time-number" id="minutes">
-                  31
-                </div>
-                <div class="time-label">
-                  MINUTES
-                </div>
-              </div>
-
-              <div class="time-unit">
-                <div class="time-number" id="seconds">
-                  03
-                </div>
-                <div class="time-label">
-                  SECONDS
-                </div>
-              </div>
-
-            </div>
-
-
-            <div class="exam-info">
-
-              <div class="exam-name">
-                🎓 GATE 2026 (EE)
-              </div>
-
-              <div class="exam-date">
-                10 Sep 2026 · 09:00 AM
-              </div>
-
-              <button class="change-btn">
-                Change
-              </button>
-
-            </div>
-
-          </div>
-
-        </div>
+        <button class="secondary-btn"
+                onclick="window.location.href='pdf-notes.html'">
+          Upload Notes
+        </button>
 
       </div>
 
+    </section>
 
-      <!-- TODAY'S PLAN -->
 
-      <div class="plan-card">
 
-        <div class="plan-header">
+    <!-- CENTER STUDENT -->
 
-          <h2>
-            Today's Plan
-          </h2>
+    <section class="student-area">
 
-          <a href="study-plan.html">
-            View Full Plan →
-          </a>
+      <div class="circle-bg"></div>
 
+      <div class="spark one">✦</div>
+      <div class="spark two">✧</div>
+      <div class="spark three">✦</div>
+
+      <div class="student">
+
+        <div class="student-head">
+          <div class="hair"></div>
+
+          <div class="headphones-left"></div>
+          <div class="headphones-right"></div>
         </div>
 
+        <div class="body">
 
-        <div class="plan-item">
+          <div class="book"></div>
 
-          <div class="plan-icon">
-            📖
-          </div>
-
-          <div class="plan-text">
-            <strong>
-              What to Study
-            </strong>
-            <small>
-              Electrical Machines
-            </small>
-          </div>
-
-          <div class="plan-time">
-            45m
-          </div>
-
-        </div>
-
-
-        <div class="plan-item">
-
-          <div class="plan-icon">
-            ⏱
-          </div>
-
-          <div class="plan-text">
-            <strong>
-              What to Skip
-            </strong>
-            <small>
-              Low-weight topics
-            </small>
-          </div>
-
-          <div class="plan-time">
-            15m
-          </div>
-
-        </div>
-
-
-        <div class="plan-item">
-
-          <div class="plan-icon">
-            📝
-          </div>
-
-          <div class="plan-text">
-            <strong>
-              Practice Questions
-            </strong>
-            <small>
-              20 important questions
-            </small>
-          </div>
-
-          <div class="plan-time">
-            60m
-          </div>
-
-        </div>
-
-
-        <div class="plan-item">
-
-          <div class="plan-icon">
-            ✓
-          </div>
-
-          <div class="plan-text">
-            <strong>
-              Last Hour Revision
-            </strong>
-            <small>
-              Formulas + key points
-            </small>
-          </div>
-
-          <div class="plan-time">
-            30m
+          <div class="laptop">
+            <div class="laptop-screen"></div>
           </div>
 
         </div>
@@ -1016,146 +743,98 @@
     </section>
 
 
-    <!-- PROGRESS -->
 
-    <h2 class="section-title">
-      Your Preparation
-    </h2>
+    <!-- COUNTDOWN -->
+
+    <section class="countdown-card">
+
+      <div class="countdown-title">
+        EXAM IN
+      </div>
 
 
-    <section class="stats">
+      <div class="countdown">
 
-
-      <div class="stat-card">
-
-        <div class="stat-top">
-
-          <div>
-            <small>Overall Progress</small>
+        <div>
+          <div class="time-number" id="days">
+            07
           </div>
-
-          <div class="stat-icon">
-            ◔
+          <div class="time-label">
+            Days
           </div>
-
         </div>
 
-        <h3>
-          72%
-        </h3>
 
-        <p>
-          Keep going — you're on track.
-        </p>
+        <div>
+          <div class="time-number" id="hours">
+            09
+          </div>
+          <div class="time-label">
+            Hours
+          </div>
+        </div>
 
-        <div class="progress-bar">
-          <div class="progress-fill"></div>
+
+        <div>
+          <div class="time-number" id="minutes">
+            31
+          </div>
+          <div class="time-label">
+            Minutes
+          </div>
+        </div>
+
+
+        <div>
+          <div class="time-number" id="seconds">
+            03
+          </div>
+          <div class="time-label">
+            Seconds
+          </div>
         </div>
 
       </div>
 
 
-      <div class="stat-card">
+      <div class="exam-info">
 
-        <div class="stat-top">
-
-          <div>
-            <small>Topics Covered</small>
-          </div>
-
-          <div class="stat-icon">
-            ✓
-          </div>
-
+        <div class="exam-name">
+          🎓 GATE 2026 (EE)
         </div>
 
-        <h3>
-          18 / 25
-        </h3>
-
-        <p>
-          7 important topics remaining.
-        </p>
-
-        <div class="progress-bar">
-          <div class="progress-fill orange"></div>
+        <div class="exam-date">
+          10 September 2026 · 09:00 AM
         </div>
 
       </div>
 
 
-      <div class="stat-card">
-
-        <div class="stat-top">
-
-          <div>
-            <small>Practice</small>
-          </div>
-
-          <div class="stat-icon">
-            ✎
-          </div>
-
-        </div>
-
-        <h3>
-          64%
-        </h3>
-
-        <p>
-          Questions successfully practiced.
-        </p>
-
-        <div class="progress-bar">
-          <div class="progress-fill green"></div>
-        </div>
-
+      <div class="countdown-message">
+        Pressure is real.<br>
+        Plan is the power. ✦
       </div>
-
-    </section>
-
-
-    <!-- PDF FEATURE -->
-
-    <section class="pdf-banner">
-
-      <div>
-
-        <h2>
-          ⚡ Have notes but no time?
-        </h2>
-
-        <p>
-          Upload your PDF and Riˈvaiz will find the key points,
-          summaries and important questions.
-        </p>
-
-      </div>
-
-      <button
-        class="pdf-button"
-        onclick="location.href='pdf-notes.html'">
-        Upload PDF →
-      </button>
 
     </section>
 
   </main>
 
 
+
   <!-- =========================
        JAVASCRIPT
-  ========================= -->
+  ========================== -->
 
   <script>
 
     /*
-      EXAM COUNTDOWN
-
-      Change this date to your actual exam date.
+      Change this date to the student's
+      actual exam date later.
     */
 
-    const examDate = new Date("September 10, 2026 09:00:00").getTime();
+    const examDate = new Date(
+      "September 10, 2026 09:00:00"
+    ).getTime();
 
 
     function updateCountdown() {
@@ -1167,10 +846,10 @@
 
       if (difference <= 0) {
 
-        document.getElementById("days").innerText = "00";
-        document.getElementById("hours").innerText = "00";
-        document.getElementById("minutes").innerText = "00";
-        document.getElementById("seconds").innerText = "00";
+        document.getElementById("days").textContent = "00";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
 
         return;
       }
@@ -1181,31 +860,28 @@
       );
 
       const hours = Math.floor(
-        (difference % (1000 * 60 * 60 * 24))
-        / (1000 * 60 * 60)
+        (difference / (1000 * 60 * 60)) % 24
       );
 
       const minutes = Math.floor(
-        (difference % (1000 * 60 * 60))
-        / (1000 * 60)
+        (difference / (1000 * 60)) % 60
       );
 
       const seconds = Math.floor(
-        (difference % (1000 * 60))
-        / 1000
+        (difference / 1000) % 60
       );
 
 
-      document.getElementById("days").innerText =
+      document.getElementById("days").textContent =
         String(days).padStart(2, "0");
 
-      document.getElementById("hours").innerText =
+      document.getElementById("hours").textContent =
         String(hours).padStart(2, "0");
 
-      document.getElementById("minutes").innerText =
+      document.getElementById("minutes").textContent =
         String(minutes).padStart(2, "0");
 
-      document.getElementById("seconds").innerText =
+      document.getElementById("seconds").textContent =
         String(seconds).padStart(2, "0");
     }
 
@@ -1215,25 +891,9 @@
     setInterval(updateCountdown, 1000);
 
 
-    /*
-      SIMPLE THEME BUTTON
-    */
-
     function toggleTheme() {
 
       document.body.classList.toggle("dark");
-
-      if (document.body.classList.contains("dark")) {
-
-        document.body.style.background = "#17131C";
-        document.body.style.color = "#FFFFFF";
-
-      } else {
-
-        document.body.style.background = "#FAF9F6";
-        document.body.style.color = "#18181B";
-
-      }
 
     }
 

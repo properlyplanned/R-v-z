@@ -2382,3 +2382,104 @@ body {
   }
 
 }
+/* =========================
+   STUDY PLAN - FINAL FIX
+========================= */
+
+.study-plan-page {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 55px 0 75px;
+}
+
+.study-plan-page > .container {
+  width: 1200px !important;
+  max-width: calc(100% - 48px) !important;
+  margin: 0 auto !important;
+}
+
+.planner-layout {
+  display: grid !important;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr) !important;
+  gap: 24px !important;
+  width: 100% !important;
+  align-items: stretch !important;
+}
+
+.planner-card,
+.planner-result {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+  padding: 30px !important;
+  border-radius: 22px !important;
+  border: 1px solid var(--border) !important;
+  background: var(--white) !important;
+  box-shadow: var(--shadow) !important;
+}
+
+.planner-card h2,
+.planner-result h2 {
+  margin-top: 0 !important;
+}
+
+.planner-field input[type="text"],
+.planner-field select {
+  display: block !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.level-options {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
+.level-option {
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.planner-button {
+  display: block !important;
+  width: 100% !important;
+}
+
+.planner-result {
+  min-height: 500px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.result-empty {
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+}
+
+@media (max-width: 850px) {
+
+  .planner-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .study-plan-page > .container {
+    width: calc(100% - 24px) !important;
+    max-width: none !important;
+  }
+
+  .planner-card,
+  .planner-result {
+    padding: 22px !important;
+  }
+
+}

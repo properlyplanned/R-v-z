@@ -3432,3 +3432,300 @@ body {
   }
 
 }
+/* =====================================================
+   Rɪ'VAIZ PRACTICE PAGE - STYLE FIX
+===================================================== */
+
+.practice-page {
+  padding: 48px 0 70px !important;
+  background: var(--background) !important;
+}
+
+.practice-page .container {
+  width: 1200px !important;
+  max-width: calc(100% - 48px) !important;
+  margin: 0 auto !important;
+}
+
+.practice-page .page-intro {
+  margin-bottom: 34px !important;
+}
+
+.practice-page .page-intro h1 {
+  margin: 8px 0 10px !important;
+  font-size: 44px !important;
+  line-height: 1.12 !important;
+  color: var(--text) !important;
+}
+
+.practice-page .page-intro > p:last-child {
+  color: var(--muted) !important;
+  font-size: 17px !important;
+}
+
+
+/* QUICK SETUP CARD */
+
+.practice-setup {
+  padding: 30px !important;
+  background: var(--white) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 22px !important;
+  box-shadow: var(--shadow) !important;
+}
+
+.practice-setup .setup-header h2 {
+  margin: 7px 0 5px !important;
+  font-size: 24px !important;
+  color: var(--text) !important;
+}
+
+.practice-setup .setup-header p {
+  margin: 0 !important;
+  color: var(--muted) !important;
+  font-size: 13px !important;
+}
+
+
+/* FOUR OPTIONS */
+
+.practice-options {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 14px !important;
+  margin-top: 25px !important;
+}
+
+.practice-option {
+  min-height: 165px !important;
+  padding: 20px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+
+  background: var(--white) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 16px !important;
+
+  color: var(--text) !important;
+  cursor: pointer !important;
+  transition: .2s ease !important;
+}
+
+.practice-option:hover {
+  border-color: var(--primary) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: var(--shadow) !important;
+}
+
+.practice-option.selected {
+  border: 2px solid var(--primary) !important;
+  background: #fcfaff !important;
+}
+
+.practice-icon {
+  width: 42px !important;
+  height: 42px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  margin-bottom: 16px !important;
+  border-radius: 12px !important;
+
+  font-size: 18px !important;
+  font-weight: 800 !important;
+}
+
+.practice-icon.purple {
+  background: var(--purple-light) !important;
+  color: var(--primary) !important;
+}
+
+.practice-icon.coral {
+  background: var(--pink-light) !important;
+  color: #ef6f61 !important;
+}
+
+.practice-option strong {
+  display: block !important;
+  color: var(--text) !important;
+  font-size: 14px !important;
+}
+
+.practice-option small {
+  display: block !important;
+  margin-top: 8px !important;
+  color: var(--muted) !important;
+  font-size: 11px !important;
+  line-height: 1.5 !important;
+}
+
+
+/* NUMBER OF QUESTIONS */
+
+.question-count {
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  margin-top: 24px !important;
+}
+
+.question-count label {
+  color: var(--text) !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+}
+
+.question-count select {
+  padding: 10px 13px !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+  background: var(--white) !important;
+  color: var(--text) !important;
+}
+
+
+/* START BUTTON */
+
+.generate-practice {
+  margin-top: 22px !important;
+  padding: 13px 22px !important;
+
+  border: none !important;
+  border-radius: 11px !important;
+
+  background: var(--primary) !important;
+  color: #ffffff !important;
+
+  font-size: 13px !important;
+  font-weight: 700 !important;
+
+  cursor: pointer !important;
+}
+
+.generate-practice:hover {
+  background: var(--primary-dark) !important;
+}
+
+
+/* TIP */
+
+.practice-tip {
+  display: flex !important;
+  align-items: center !important;
+  gap: 15px !important;
+
+  margin-top: 25px !important;
+  padding: 20px !important;
+
+  background: var(--pink-light) !important;
+  border-radius: 16px !important;
+}
+
+.tip-icon {
+  width: 42px !important;
+  height: 42px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  flex-shrink: 0 !important;
+
+  border-radius: 12px !important;
+  background: var(--white) !important;
+  color: var(--primary) !important;
+}
+
+.practice-tip strong {
+  color: var(--text) !important;
+  font-size: 13px !important;
+}
+
+.practice-tip p {
+  margin: 4px 0 0 !important;
+  color: var(--muted) !important;
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+}
+
+
+/* QUESTION AREA */
+
+.question-area {
+  margin-top: 40px !important;
+}
+
+.question-card {
+  padding: 35px !important;
+  background: var(--white) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 22px !important;
+}
+
+.question-card h2 {
+  margin: 15px 0 25px !important;
+  color: var(--text) !important;
+  font-size: 22px !important;
+  line-height: 1.45 !important;
+}
+
+.answer-options {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 12px !important;
+}
+
+.answer-options button {
+  padding: 15px !important;
+  text-align: left !important;
+
+  border: 1px solid var(--border) !important;
+  border-radius: 12px !important;
+
+  background: var(--white) !important;
+  color: var(--text) !important;
+
+  cursor: pointer !important;
+}
+
+.answer-options button:hover,
+.answer-options button.selected-answer {
+  border-color: var(--primary) !important;
+  background: var(--purple-light) !important;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 950px) {
+
+  .practice-options {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .practice-page .container {
+    width: calc(100% - 24px) !important;
+    max-width: none !important;
+  }
+
+  .practice-page .page-intro h1 {
+    font-size: 34px !important;
+  }
+
+  .practice-options {
+    grid-template-columns: 1fr !important;
+  }
+
+  .answer-options {
+    grid-template-columns: 1fr !important;
+  }
+
+}

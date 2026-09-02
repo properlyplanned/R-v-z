@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Dashboard — Rɪ'vaiz</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header class="site-header">
+
+    <div class="container nav-wrap">
+
+      <a href="dashboard.html" class="brand">
+
+        <span class="logo-box">R</span>
+
+        <span>
+          <strong>Rɪ'vaiz</strong>
+          <small>Revise What Matters</small>
+        </span>
+
+      </a>
+
+
+      <nav class="main-nav">
+
+        <a href="dashboard.html" class="active">
+          Dashboard
+        </a>
+
+        <a href="study-plan.html">
+          Study Plan
+        </a>
+
+        <a href="pdf-notes.html">
+          PDF Notes
+        </a>
+
+        <a href="practice.html">
+          Practice
+        </a>
+
+        <a href="final-hour.html">
+          Final Hour
+        </a>
+
+        <a href="progress.html">
+          Progress
+        </a>
+
+      </nav>
+
+
+      <div class="header-actions">
+
+        <button
+          class="theme-btn"
+          onclick="toggleTheme()"
+          aria-label="Toggle theme"
+        >
+          ◐
+        </button>
+
+        <a href="settings.html" class="user-circle">
+          U
+        </a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- =========================
+       DASHBOARD
+  ========================== -->
+
+  <main class="dashboard-page">
+
+    <div class="container">
+
+
+      <!-- Welcome -->
+
+      <section class="dashboard-welcome">
+
+        <div>
+
+          <p class="dashboard-eyebrow">
+            YOUR REVISION SPACE
+          </p>
+
+          <h1>
+            Welcome back, <span id="dashboard-name">Student</span> 👋
+          </h1>
+
+          <p>
+            Let's focus on what matters most for your exam.
+          </p>
+
+        </div>
+
+
+        <a
+          href="study-plan.html"
+          class="primary-btn"
+        >
+          Build My Study Plan →
+        </a>
+
+      </section>
+
+
+
+      <!-- =========================
+           EXAM COUNTDOWN
+      ========================== -->
+
+      <section class="dashboard-exam-card">
+
+        <div class="exam-info">
+
+          <span class="exam-label">
+            YOUR NEXT EXAM
+          </span>
+
+          <h2>
+            🎓 GATE 2026 (EE)
+          </h2>
+
+          <p>
+            10 September 2026 · 09:00 AM
+          </p>
+
+        </div>
+
+
+        <div class="dashboard-countdown">
+
+          <div class="countdown-box">
+
+            <strong id="days">
+              00
+            </strong>
+
+            <span>
+              Days
+            </span>
+
+          </div>
+
+
+          <div class="countdown-box">
+
+            <strong id="hours">
+              00
+            </strong>
+
+            <span>
+              Hours
+            </span>
+
+          </div>
+
+
+          <div class="countdown-box">
+
+            <strong id="minutes">
+              00
+            </strong>
+
+            <span>
+              Minutes
+            </span>
+
+          </div>
+
+
+          <div class="countdown-box">
+
+            <strong id="seconds">
+              00
+            </strong>
+
+            <span>
+              Seconds
+            </span>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =========================
+           QUICK ACTIONS
+      ========================== -->
+
+      <section class="dashboard-section">
+
+        <div class="section-heading">
+
+          <div>
+
+            <p class="dashboard-eyebrow">
+              QUICK ACTIONS
+            </p>
+
+            <h2>
+              What do you need right now?
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        <div class="dashboard-tools">
+
+
+          <!-- Study Plan -->
+
+          <a
+            href="study-plan.html"
+            class="dashboard-tool"
+          >
+
+            <div class="tool-icon purple">
+              ✦
+            </div>
+
+            <div>
+
+              <h3>
+                Smart Study Plan
+              </h3>
+
+              <p>
+                Tell us how much time you have and get your priorities.
+              </p>
+
+            </div>
+
+            <span class="tool-arrow">
+              →
+            </span>
+
+          </a>
+
+
+
+          <!-- PDF Notes -->
+
+          <a
+            href="pdf-notes.html"
+            class="dashboard-tool"
+          >
+
+            <div class="tool-icon coral">
+              📄
+            </div>
+
+            <div>
+
+              <h3>
+                Notes from PDF
+              </h3>
+
+              <p>
+                Turn long notes into concise, exam-focused revision.
+              </p>
+
+            </div>
+
+            <span class="tool-arrow">
+              →
+            </span>
+
+          </a>
+
+
+
+          <!-- Practice -->
+
+          <a
+            href="practice.html"
+            class="dashboard-tool"
+          >
+
+            <div class="tool-icon purple">
+              ?
+            </div>
+
+            <div>
+
+              <h3>
+                Practice Questions
+              </h3>
+
+              <p>
+                Practice important questions before the exam.
+              </p>
+
+            </div>
+
+            <span class="tool-arrow">
+              →
+            </span>
+
+          </a>
+
+
+
+          <!-- Final Hour -->
+
+          <a
+            href="final-hour.html"
+            class="dashboard-tool"
+          >
+
+            <div class="tool-icon coral">
+              ⚡
+            </div>
+
+            <div>
+
+              <h3>
+                Final Hour
+              </h3>
+
+              <p>
+                Get a focused revision plan for your last hour.
+              </p>
+
+            </div>
+
+            <span class="tool-arrow">
+              →
+            </span>
+
+          </a>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =========================
+           PROGRESS + PRIORITIES
+      ========================== -->
+
+      <section class="dashboard-grid">
+
+
+        <!-- Progress -->
+
+        <div class="dashboard-panel">
+
+          <div class="panel-heading">
+
+            <div>
+
+              <span>
+                YOUR PROGRESS
+              </span>
+
+              <h2>
+                Keep moving forward
+              </h2>
+
+            </div>
+
+            <a href="progress.html">
+              View →
+            </a>
+
+          </div>
+
+
+          <div class="progress-number">
+            0%
+          </div>
+
+          <div class="progress-bar">
+
+            <div
+              class="progress-fill"
+              style="width: 0%"
+            ></div>
+
+          </div>
+
+          <p class="progress-text">
+            Start your first study session to track your progress.
+          </p>
+
+        </div>
+
+
+
+        <!-- Priorities -->
+
+        <div class="dashboard-panel priority-panel">
+
+          <div class="panel-heading">
+
+            <div>
+
+              <span>
+                TODAY'S FOCUS
+              </span>
+
+              <h2>
+                Study what matters
+              </h2>
+
+            </div>
+
+          </div>
+
+
+          <div class="priority-list">
+
+            <div class="priority-item">
+
+              <span class="priority-number">
+                01
+              </span>
+
+              <div>
+
+                <strong>
+                  Identify high-value topics
+                </strong>
+
+                <p>
+                  Start with topics most likely to help your score.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="priority-item">
+
+              <span class="priority-number">
+                02
+              </span>
+
+              <div>
+
+                <strong>
+                  Practice questions
+                </strong>
+
+                <p>
+                  Test yourself instead of only rereading notes.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="priority-item">
+
+              <span class="priority-number">
+                03
+              </span>
+
+              <div>
+
+                <strong>
+                  Revise before stopping
+                </strong>
+
+                <p>
+                  Finish with a quick recall session.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =========================
+           FINAL CTA
+      ========================== -->
+
+      <section class="dashboard-cta">
+
+        <div>
+
+          <span>
+            RUNNING OUT OF TIME?
+          </span>
+
+          <h2>
+            Don't study everything.
+            Study what matters.
+          </h2>
+
+          <p>
+            Rɪ'vaiz helps you decide what deserves your remaining time.
+          </p>
+
+        </div>
+
+
+        <a
+          href="final-hour.html"
+          class="secondary-btn"
+        >
+          Start Final Revision →
+        </a>
+
+      </section>
+
+
+    </div>
+
+  </main>
+
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer class="simple-footer">
+
+    <p>
+      © 2026 Rɪ'vaiz · Revise What Matters.
+    </p>
+
+  </footer>
+
+
+
+  <script src="script.js"></script>
+
+
+  <script>
+
+    // Show saved user's name
+
+    const savedName =
+      localStorage.getItem("rivaizUserName");
+
+    if (savedName) {
+      document.getElementById("dashboard-name").textContent =
+        savedName;
+    }
+
+  </script>
+
+</body>
+</html>

@@ -560,6 +560,36 @@
 
   document.getElementById("plan-summary").textContent =
     `${levelAdjustment} ${timeStrategy}`;
+     /* =========================
+     TIME BREAKDOWN
+  ========================= */
+
+  let timeBreakdown = "";
+
+  if (hours <= 1) {
+
+    timeBreakdown =
+      "0–35 min: High-priority concepts · 35–50 min: Important questions · 50–60 min: Formula recall and final revision.";
+
+  } else if (hours <= 4) {
+
+    timeBreakdown =
+      "0–90 min: High-priority topics · 90–150 min: PYQs and important questions · 150–195 min: Weak areas · 195–240 min: Final recall and revision.";
+
+  } else if (hours <= 12) {
+
+    timeBreakdown =
+      "First 40%: High-priority topics · Next 25%: Practice & PYQs · Next 20%: Weak areas · Final 15%: Rapid revision and recall.";
+
+  } else {
+
+    timeBreakdown =
+      "Study in focused blocks: Priority topics → Practice/PYQs → Weak areas → Revision. Take short breaks between blocks and end each study session with active recall.";
+
+  }
+
+  document.getElementById("time-breakdown").textContent =
+    timeBreakdown;
 
   const planItems =
     document.querySelectorAll(".plan-item");

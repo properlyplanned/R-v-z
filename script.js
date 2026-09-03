@@ -286,3 +286,13 @@ function signUp(event) {
 
   window.location.href = "dashboard.html";
 }
+/* =========================
+   LOGOUT
+========================= */
+
+function logoutUser() {
+  localStorage.removeItem("rivaiz-user");
+  localStorage.removeItem("rivaiz-logged-in");
+
+  window.location.href = "signin.html";
+}

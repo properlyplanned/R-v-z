@@ -283,6 +283,7 @@ function signUp(event) {
   localStorage.setItem("rivaizLoggedIn", "true");
   localStorage.setItem("rivaizUserName", name);
   localStorage.setItem("rivaizUserEmail", email);
+  localStorage.setItem("rivaizUserPassword", password);
 
   window.location.href = "dashboard.html";
 }

@@ -293,9 +293,6 @@ function signUp(event) {
 
 function logoutUser() {
   localStorage.removeItem("rivaizLoggedIn");
-  localStorage.removeItem("rivaizUserName");
-  localStorage.removeItem("rivaizUserEmail");
-
   window.location.href = "signin.html";
 }
 

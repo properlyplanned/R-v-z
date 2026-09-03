@@ -298,3 +298,35 @@ function logoutUser() {
   window.location.href = "signin.html";
 }
 
+/* =========================
+   SIGN IN
+========================= */
+
+function signIn(event) {
+  event.preventDefault();
+
+  const email = document.getElementById("signin-email").value.trim();
+  const password = document.getElementById("signin-password").value;
+
+  const savedEmail = localStorage.getItem("rivaizUserEmail");
+  const savedPassword = localStorage.getItem("rivaizUserPassword");
+  const savedName = localStorage.getItem("rivaizUserName");
+
+  if (!email || !password) {
+    alert("Please enter your email and password.");
+    return;
+  }
+
+  if (email !== savedEmail || password !== savedPassword) {
+    alert("Incorrect email or password. Please try again.");
+    return;
+  }
+
+  localStorage.setItem("rivaizLoggedIn", "true");
+
+  if (savedName) {
+    localStorage.setItem("rivaizUserName", savedName);
+  }
+
+  window.location.href = "dashboard.html";
+}

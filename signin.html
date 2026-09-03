@@ -1,105 +1,199 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign In — Rɪ'vaiz</title>
+
+  <title>Sign In | Rɪ'vaiz</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="auth-page">
 
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container nav-wrap">
+  <main class="auth-container">
 
-      <a href="index.html" class="brand">
+    <!-- LEFT SIDE -->
+    <section class="auth-brand">
+
+      <a href="index.html" class="auth-logo">
         <span class="logo-box">R</span>
+
         <span>
           <strong>Rɪ'vaiz</strong>
           <small>Revise What Matters</small>
         </span>
       </a>
 
-      <a href="index.html" class="back-home">← Back to Home</a>
+      <div class="auth-intro">
 
-    </div>
-  </header>
+        <span class="auth-kicker">
+          WELCOME BACK ✦
+        </span>
+
+        <h1>
+          Study less.<br>
+          <span>Revise smarter.</span>
+        </h1>
+
+        <p>
+          Pick up exactly where you left off and focus
+          on what matters most before your exam.
+        </p>
+
+      </div>
+
+      <div class="auth-quote">
+
+        <span>“</span>
+
+        <p>
+          Don't study everything.<br>
+          Study what matters.
+        </p>
+
+      </div>
+
+    </section>
 
 
-  <!-- Sign In -->
-  <main class="auth-page">
+    <!-- RIGHT SIDE -->
+    <section class="auth-card">
 
-    <div class="auth-card">
+      <div class="auth-card-header">
 
-      <div class="auth-heading">
-        <span class="auth-icon">✦</span>
-        <h1>Welcome back</h1>
-        <p>Sign in to continue your smart revision journey.</p>
+        <h2>Welcome back 👋🏻</h2>
+
+        <p>
+          Sign in to continue your revision.
+        </p>
+
       </div>
 
 
-      <form class="auth-form" onsubmit="signIn(event)">
+      <!-- SIGN IN FORM -->
+      <form onsubmit="signIn(event)" class="auth-form">
 
+        <!-- EMAIL -->
         <div class="form-group">
-          <label for="email">Email address</label>
+
+          <label for="signin-email">
+            Email address
+          </label>
+
           <input
             type="email"
-            id="email"
+            id="signin-email"
+            name="email"
             placeholder="you@example.com"
+            autocomplete="email"
             required
           >
+
         </div>
 
 
+        <!-- PASSWORD -->
         <div class="form-group">
-          <div class="label-row">
-            <label for="password">Password</label>
-            <a href="#">Forgot password?</a>
+
+          <div class="form-label-row">
+
+            <label for="signin-password">
+              Password
+            </label>
+
+            <a href="#" onclick="return false;">
+              Forgot password?
+            </a>
+
           </div>
 
-          <input
-            type="password"
-            id="password"
-            placeholder="Enter your password"
-            required
-          >
+          <div class="password-field">
+
+            <input
+              type="password"
+              id="signin-password"
+              name="password"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+              required
+            >
+
+            <button
+              type="button"
+              class="password-toggle"
+              onclick="togglePassword('signin-password', this)"
+              aria-label="Show password"
+            >
+              ◉
+            </button>
+
+          </div>
+
         </div>
 
 
+        <!-- REMEMBER ME -->
         <label class="remember-row">
-          <input type="checkbox">
-          <span>Remember me</span>
+
+          <input
+            type="checkbox"
+            id="remember-me"
+          >
+
+          <span>
+            Remember me
+          </span>
+
         </label>
 
 
-        <button type="submit" class="auth-submit">
-          Sign In →
+        <!-- SIGN IN BUTTON -->
+        <button
+          type="submit"
+          class="auth-submit"
+        >
+          Sign In
+          <span>→</span>
         </button>
 
       </form>
 
 
+      <!-- DIVIDER -->
       <div class="auth-divider">
         <span>or</span>
       </div>
 
 
-      <p class="auth-switch">
-        Don't have an account?
-        <a href="signup.html">Create an account</a>
-      </p>
+      <!-- SIGN UP -->
+      <div class="auth-switch">
 
-    </div>
+        <p>
+          Don't have an account?
+          <a href="signup.html">Create one</a>
+        </p>
+
+      </div>
+
+
+      <!-- FOOTER -->
+      <div class="auth-mini-footer">
+
+        <span>✦</span>
+
+        <p>
+          Revise smart. Stay calm. You've got this.
+        </p>
+
+      </div>
+
+    </section>
 
   </main>
 
 
-  <footer class="simple-footer">
-    <p>© 2026 Rɪ'vaiz · Revise What Matters.</p>
-  </footer>
-
-
+  <!-- SCRIPT -->
   <script src="script.js"></script>
 
 </body>

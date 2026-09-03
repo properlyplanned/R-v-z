@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress — Rɪ'vaiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+
+    <a href="dashboard.html" class="brand">
+      <span class="logo-box">R</span>
+      <span>
+        <strong>Rɪ'vaiz</strong>
+        <small>Revise What Matters</small>
+      </span>
+    </a>
+
+    <nav class="main-nav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="study-plan.html">Study Plan</a>
+      <a href="pdf-notes.html">PDF Notes</a>
+      <a href="practice.html">Practice</a>
+      <a href="final-hour.html">Final Hour</a>
+      <a href="progress.html" class="active">Progress</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-btn" onclick="toggleTheme()">◐</button>
+      <a href="settings.html" class="user-circle">U</a>
+    </div>
+
+  </div>
+</header>
+
+
+<main class="progress-page">
+
+  <div class="container">
+
+    <section class="page-intro">
+      <p class="dashboard-eyebrow">YOUR PROGRESS</p>
+      <h1>See how far you've come.</h1>
+      <p>
+        Track your preparation, spot weak areas and know what needs your attention next.
+      </p>
+    </section>
+
+
+    <!-- OVERVIEW -->
+
+    <section class="progress-overview">
+
+      <div class="progress-stat">
+        <span class="stat-icon purple">↗</span>
+        <div>
+          <strong>68%</strong>
+          <span>Overall Progress</span>
+        </div>
+      </div>
+
+      <div class="progress-stat">
+        <span class="stat-icon coral">🔥</span>
+        <div>
+          <strong>7</strong>
+          <span>Day Streak</span>
+        </div>
+      </div>
+
+      <div class="progress-stat">
+        <span class="stat-icon purple">✓</span>
+        <div>
+          <strong>24</strong>
+          <span>Topics Covered</span>
+        </div>
+      </div>
+
+      <div class="progress-stat">
+        <span class="stat-icon coral">★</span>
+        <div>
+          <strong>76%</strong>
+          <span>Practice Accuracy</span>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- MAIN GRID -->
+
+    <section class="progress-main-grid">
+
+      <!-- STUDY PROGRESS -->
+
+      <div class="progress-card study-progress-card">
+
+        <div class="card-heading">
+          <div>
+            <span class="result-label">STUDY PROGRESS</span>
+            <h2>Your preparation</h2>
+          </div>
+
+          <strong class="big-percentage">68%</strong>
+        </div>
+
+        <div class="progress-bar">
+          <span style="width: 68%;"></span>
+        </div>
+
+        <div class="progress-details">
+          <span>24 topics completed</span>
+          <span>11 topics remaining</span>
+        </div>
+
+      </div>
+
+
+      <!-- PRACTICE -->
+
+      <div class="progress-card">
+
+        <span class="result-label">PRACTICE</span>
+        <h2>Question performance</h2>
+
+        <div class="accuracy-circle">
+          <strong>76%</strong>
+          <span>Accuracy</span>
+        </div>
+
+        <div class="practice-mini-stats">
+          <div>
+            <strong>152</strong>
+            <span>Attempted</span>
+          </div>
+
+          <div>
+            <strong>116</strong>
+            <span>Correct</span>
+          </div>
+
+          <div>
+            <strong>36</strong>
+            <span>Incorrect</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- LOWER GRID -->
+
+    <section class="progress-lower-grid">
+
+      <!-- WEAK AREAS -->
+
+      <div class="progress-card">
+
+        <div class="card-heading">
+          <div>
+            <span class="result-label">NEEDS ATTENTION</span>
+            <h2>Weak areas</h2>
+          </div>
+        </div>
+
+        <div class="weak-topic">
+          <div>
+            <strong>Power Systems</strong>
+            <span>Needs revision</span>
+          </div>
+          <span class="weak-percent">42%</span>
+        </div>
+
+        <div class="weak-topic">
+          <div>
+            <strong>Control Systems</strong>
+            <span>Needs practice</span>
+          </div>
+          <span class="weak-percent">51%</span>
+        </div>
+
+        <div class="weak-topic">
+          <div>
+            <strong>Electrical Machines</strong>
+            <span>Almost there</span>
+          </div>
+          <span class="weak-percent">64%</span>
+        </div>
+
+        <a href="study-plan.html" class="progress-link">
+          Revise weak areas →
+        </a>
+
+      </div>
+
+
+      <!-- RECENT ACTIVITY -->
+
+      <div class="progress-card">
+
+        <div class="card-heading">
+          <div>
+            <span class="result-label">RECENT ACTIVITY</span>
+            <h2>What you've done</h2>
+          </div>
+        </div>
+
+        <div class="activity-item">
+          <span class="activity-dot purple-dot"></span>
+          <div>
+            <strong>Completed Study Plan</strong>
+            <span>Today · 42 minutes</span>
+          </div>
+        </div>
+
+        <div class="activity-item">
+          <span class="activity-dot coral-dot"></span>
+          <div>
+            <strong>Practiced 20 questions</strong>
+            <span>Yesterday · 76% accuracy</span>
+          </div>
+        </div>
+
+        <div class="activity-item">
+          <span class="activity-dot purple-dot"></span>
+          <div>
+            <strong>Reviewed PDF Notes</strong>
+            <span>Yesterday · 28 minutes</span>
+          </div>
+        </div>
+
+        <div class="activity-item">
+          <span class="activity-dot coral-dot"></span>
+          <div>
+            <strong>Completed Power Systems</strong>
+            <span>2 days ago</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- MOTIVATION -->
+
+    <section class="progress-motivation">
+
+      <div class="motivation-icon">✦</div>
+
+      <div>
+        <span class="result-label">KEEP GOING</span>
+        <h2>You're making progress.</h2>
+        <p>
+          Don't chase perfect preparation. Focus on the topics that can improve your score the most.
+        </p>
+      </div>
+
+      <a href="study-plan.html" class="progress-action">
+        Continue Studying →
+      </a>
+
+    </section>
+
+  </div>
+
+</main>
+
+
+<footer class="simple-footer">
+  <p>© 2026 Rɪ'vaiz · Revise What Matters.</p>
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

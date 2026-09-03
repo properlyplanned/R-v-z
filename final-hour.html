@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Final Hour — Rɪ'vaiz</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header class="site-header">
+
+    <div class="container nav-wrap">
+
+      <a href="dashboard.html" class="brand">
+
+        <span class="logo-box">R</span>
+
+        <span>
+          <strong>Rɪ'vaiz</strong>
+          <small>Revise What Matters</small>
+        </span>
+
+      </a>
+
+      <nav class="main-nav">
+
+        <a href="dashboard.html">Dashboard</a>
+        <a href="study-plan.html">Study Plan</a>
+        <a href="pdf-notes.html">PDF Notes</a>
+        <a href="practice.html">Practice</a>
+        <a href="final-hour.html" class="active">Final Hour</a>
+        <a href="progress.html">Progress</a>
+
+      </nav>
+
+      <div class="header-actions">
+
+        <button
+          class="theme-btn"
+          onclick="toggleTheme()"
+          aria-label="Toggle theme">
+          ◐
+        </button>
+
+        <a href="settings.html" class="user-circle">
+          U
+        </a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- FINAL HOUR -->
+
+  <main class="final-hour-page">
+
+    <div class="container">
+
+
+      <!-- INTRO -->
+
+      <section class="page-intro">
+
+        <p class="dashboard-eyebrow">
+          FINAL HOUR MODE
+        </p>
+
+        <h1>
+          Stop studying. Start revising smart.
+        </h1>
+
+        <p>
+          Your exam is close. We'll help you spend your remaining
+          time on the things most worth remembering.
+        </p>
+
+      </section>
+
+
+      <!-- TIME SELECTOR -->
+
+      <section class="final-time-card">
+
+        <div class="final-time-header">
+
+          <div>
+
+            <span class="result-label">
+              TIME LEFT
+            </span>
+
+            <h2>
+              How much time do you have?
+            </h2>
+
+            <p>
+              Choose your remaining time and get a focused revision route.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="time-options">
+
+          <button
+            class="time-option selected"
+            onclick="selectTime(this, 60)">
+
+            <strong>60 min</strong>
+            <small>Full final-hour revision</small>
+
+          </button>
+
+
+          <button
+            class="time-option"
+            onclick="selectTime(this, 30)">
+
+            <strong>30 min</strong>
+            <small>High-priority revision</small>
+
+          </button>
+
+
+          <button
+            class="time-option"
+            onclick="selectTime(this, 15)">
+
+            <strong>15 min</strong>
+            <small>Rapid recall mode</small>
+
+          </button>
+
+
+          <button
+            class="time-option"
+            onclick="selectTime(this, 5)">
+
+            <strong>5 min</strong>
+            <small>Last-minute essentials</small>
+
+          </button>
+
+        </div>
+
+
+        <button
+          class="start-final"
+          onclick="startFinalRevision()">
+
+          Build My Final Revision →
+          
+        </button>
+
+      </section>
+
+
+      <!-- REVISION PLAN -->
+
+      <section
+        class="final-plan"
+        id="final-plan"
+        style="display:none;">
+
+        <div class="plan-heading">
+
+          <div>
+
+            <span class="result-label">
+              YOUR FINAL ROUTE
+            </span>
+
+            <h2 id="final-title">
+              Your final revision plan
+            </h2>
+
+          </div>
+
+          <span
+            class="time-badge"
+            id="time-badge">
+            60 MIN
+          </span>
+
+        </div>
+
+
+        <!-- PRIORITY -->
+
+        <div class="final-grid">
+
+
+          <div class="final-card priority-card">
+
+            <div class="final-card-icon purple">
+              ★
+            </div>
+
+            <span class="final-card-label">
+              01 · PRIORITY
+            </span>
+
+            <h3>
+              Revise these first
+            </h3>
+
+            <ul>
+
+              <li>
+                Core formulas and definitions
+              </li>
+
+              <li>
+                Frequently tested concepts
+              </li>
+
+              <li>
+                Important diagrams and shortcuts
+              </li>
+
+              <li>
+                Your previously weak topics
+              </li>
+
+            </ul>
+
+          </div>
+
+
+          <!-- PRACTICE -->
+
+          <div class="final-card">
+
+            <div class="final-card-icon coral">
+              ?
+            </div>
+
+            <span class="final-card-label">
+              02 · PRACTICE
+            </span>
+
+            <h3>
+              Test yourself
+            </h3>
+
+            <ul>
+
+              <li>
+                Solve high-priority questions
+              </li>
+
+              <li>
+                Review mistakes immediately
+              </li>
+
+              <li>
+                Don't start unfamiliar topics
+              </li>
+
+            </ul>
+
+            <a href="practice.html" class="final-link">
+              Go to Practice →
+            </a>
+
+          </div>
+
+
+          <!-- SKIP -->
+
+          <div class="final-card skip-card">
+
+            <div class="final-card-icon coral">
+              ×
+            </div>
+
+            <span class="final-card-label">
+              03 · SKIP
+            </span>
+
+            <h3>
+              Don't waste time on
+            </h3>
+
+            <ul>
+
+              <li>
+                Completely new chapters
+              </li>
+
+              <li>
+                Very low-priority details
+              </li>
+
+              <li>
+                Long problems you're unfamiliar with
+              </li>
+
+            </ul>
+
+          </div>
+
+
+          <!-- RECALL -->
+
+          <div class="final-card">
+
+            <div class="final-card-icon purple">
+              ↻
+            </div>
+
+            <span class="final-card-label">
+              04 · RECALL
+            </span>
+
+            <h3>
+              Close your notes
+            </h3>
+
+            <ul>
+
+              <li>
+                Recall formulas from memory
+              </li>
+
+              <li>
+                Explain concepts in your own words
+              </li>
+
+              <li>
+                Mentally review key mistakes
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+
+        <!-- FINAL 15 MIN -->
+
+        <div class="last-15-card">
+
+          <div class="last-15-icon">
+            ⚡
+          </div>
+
+          <div>
+
+            <span class="result-label">
+              LAST 15 MINUTES
+            </span>
+
+            <h2>
+              Don't learn anything new.
+            </h2>
+
+            <p>
+              Review formulas, key concepts, mistakes and
+              high-confidence topics. Then stop.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- CHECKLIST -->
+
+        <div class="checklist-card">
+
+          <div>
+
+            <span class="result-label">
+              FINAL CHECKLIST
+            </span>
+
+            <h2>
+              Before you walk into the exam
+            </h2>
+
+          </div>
+
+
+          <label class="check-item">
+
+            <input type="checkbox">
+
+            <span>
+              I reviewed my important formulas.
+            </span>
+
+          </label>
+
+
+          <label class="check-item">
+
+            <input type="checkbox">
+
+            <span>
+              I reviewed my common mistakes.
+            </span>
+
+          </label>
+
+
+          <label class="check-item">
+
+            <input type="checkbox">
+
+            <span>
+              I know which topics I will attempt first.
+            </span>
+
+          </label>
+
+
+          <label class="check-item">
+
+            <input type="checkbox">
+
+            <span>
+              I am not starting a new difficult topic.
+            </span>
+
+          </label>
+
+        </div>
+
+      </section>
+
+
+      <!-- TIP -->
+
+      <section class="final-tip">
+
+        <div class="tip-icon">
+          ✦
+        </div>
+
+        <div>
+
+          <strong>
+            Remember
+          </strong>
+
+          <p>
+            Your goal in the final hour isn't to know everything.
+            It's to make sure you can recall what you already know.
+          </p>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer class="simple-footer">
+
+    <p>
+      © 2026 Rɪ'vaiz · Revise What Matters.
+    </p>
+
+  </footer>
+
+
+  <script src="script.js"></script>
+
+
+  <script>
+
+    let selectedMinutes = 60;
+
+
+    function selectTime(button, minutes) {
+
+      document
+        .querySelectorAll(".time-option")
+        .forEach(option => {
+          option.classList.remove("selected");
+        });
+
+      button.classList.add("selected");
+
+      selectedMinutes = minutes;
+
+    }
+
+
+    function startFinalRevision() {
+
+      const plan =
+        document.getElementById("final-plan");
+
+      const badge =
+        document.getElementById("time-badge");
+
+      const title =
+        document.getElementById("final-title");
+
+
+      badge.textContent =
+        selectedMinutes + " MIN";
+
+
+      if (selectedMinutes === 60) {
+
+        title.textContent =
+          "Your 60-minute final revision plan";
+
+      } else if (selectedMinutes === 30) {
+
+        title.textContent =
+          "Your 30-minute high-priority plan";
+
+      } else if (selectedMinutes === 15) {
+
+        title.textContent =
+          "Your 15-minute rapid recall plan";
+
+      } else {
+
+        title.textContent =
+          "Your 5-minute emergency revision plan";
+
+      }
+
+
+      plan.style.display = "block";
+
+
+      plan.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+    }
+
+  </script>
+
+</body>
+
+</html>

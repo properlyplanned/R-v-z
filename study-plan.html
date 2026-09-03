@@ -312,86 +312,282 @@
 
 <script>
 
-function generateStudyPlan() {
+ function generateStudyPlan() {
 
-  const subject =
-    document.getElementById("subject").value.trim();
-
-  const time =
-    document.getElementById("study-time").value;
-
-  const level =
-    document.querySelector('input[name="level"]:checked');
-
+  const subject = document.getElementById("subject").value.trim();
+  const time = document.getElementById("study-time").value;
+  const level = document.querySelector('input[name="level"]:checked');
 
   if (!subject) {
     alert("Please enter your exam or subject.");
     return;
   }
 
-
   if (!time) {
     alert("Please select how much time you have.");
     return;
   }
-
 
   if (!level) {
     alert("Please select your preparation level.");
     return;
   }
 
-
   const hours = Number(time);
+  const exam = subject.toLowerCase();
+
+  /* =========================
+     DEFAULT PLAN
+  ========================= */
+
+  let topics = [
+    "Start with the most important and frequently tested topics.",
+    "Move to medium-priority concepts after covering the high-value areas.",
+    "Use your remaining time for weak areas and quick revision."
+  ];
+
+  let practice =
+    "Practice previous-year questions and exam-style questions from the topics you studied.";
+
+  let revision =
+    "Recall formulas, definitions, key concepts and mistakes without looking at your notes.";
+
+  let skip =
+    "Avoid low-frequency topics, lengthy proofs and details that are unlikely to improve your score.";
+
+  /* =========================
+     EXAM-SPECIFIC PLANS
+  ========================= */
+
+  if (
+    exam.includes("gate") ||
+    exam.includes("electrical") ||
+    exam.includes("ee")
+  ) {
+
+    topics = [
+      "Prioritize Network Theory, Signals & Systems, Control Systems and Electrical Machines.",
+      "Then cover Power Systems, Power Electronics and other high-weightage areas.",
+      "Finish with your weakest numerical topics and important formulas."
+    ];
+
+    practice =
+      "Solve GATE previous-year questions first. Focus especially on numerical problems, repeated concepts and questions where you usually make mistakes.";
+
+    revision =
+      "Revise formulas, standard results, shortcuts, important graphs and common numerical traps.";
+
+    skip =
+      "Skip very lengthy derivations, extremely low-frequency concepts and difficult questions that consume too much time for too little gain.";
+
+  } else if (
+    exam.includes("neet") ||
+    exam.includes("medical")
+  ) {
+
+    topics = [
+      "Prioritize high-yield Biology chapters and NCERT-based facts.",
+      "Revise important Chemistry reactions, formulas and frequently tested concepts.",
+      "Finish with Physics formulas and commonly repeated numerical patterns."
+    ];
+
+    practice =
+      "Practice previous-year NEET questions and chapter-wise MCQs, focusing on accuracy and repeated concepts.";
+
+    revision =
+      "Rapidly recall NCERT facts, formulas, reactions, diagrams and mistakes from previous practice.";
+
+    skip =
+      "Avoid spending excessive time on obscure facts or very difficult questions with low expected value.";
+
+  } else if (
+    exam.includes("jee") ||
+    exam.includes("engineering entrance")
+  ) {
+
+    topics = [
+      "Prioritize high-weightage concepts from Physics, Chemistry and Mathematics.",
+      "Strengthen formulas, standard problem types and frequently repeated concepts.",
+      "Use the final study block for weak chapters and mixed practice."
+    ];
+
+    practice =
+      "Solve previous-year JEE questions and timed problems. Prioritize questions representing common exam patterns.";
+
+    revision =
+      "Revise formulas, reactions, shortcuts, standard results and frequently repeated problem types.";
+
+    skip =
+      "Skip extremely difficult problems and low-priority subtopics when they consume too much time.";
+
+  } else if (
+    exam.includes("upsc") ||
+    exam.includes("ias") ||
+    exam.includes("civil services")
+  ) {
+
+    topics = [
+      "Prioritize Polity, Modern History, Geography, Economy and other high-yield areas.",
+      "Revise important current-affairs connections and frequently tested concepts.",
+      "Use remaining time for weak areas and rapid factual recall."
+    ];
+
+    practice =
+      "Practice previous-year UPSC questions and identify recurring themes, concepts and question patterns.";
+
+    revision =
+      "Revise facts, constitutional articles, important events, key data and your personal mistake list.";
+
+    skip =
+      "Avoid getting stuck in overly detailed sources or low-yield facts that are unlikely to improve your score.";
+
+  } else if (
+    exam.includes("cat") ||
+    exam.includes("mba entrance")
+  ) {
+
+    topics = [
+      "Prioritize your weakest area among VARC, DILR and Quant.",
+      "Practice the most common question types and improve solving speed.",
+      "Finish with timed mixed sets rather than learning too many new concepts."
+    ];
+
+    practice =
+      "Solve previous CAT questions and timed sectional sets. Focus on accuracy, selection and time management.";
+
+    revision =
+      "Revise formulas, shortcuts, common question patterns and mistakes from previous sets.";
+
+    skip =
+      "Avoid spending excessive time on unusually difficult questions or low-confidence topics with poor return.";
+
+  } else if (
+    exam.includes("ssc") ||
+    exam.includes("bank") ||
+    exam.includes("banking")
+  ) {
+
+    topics = [
+      "Prioritize Quantitative Aptitude, Reasoning and English fundamentals.",
+      "Revise frequently tested General Awareness topics if relevant to your exam.",
+      "Finish with timed practice and your weakest question types."
+    ];
+
+    practice =
+      "Practice previous-year questions and timed sets. Focus on speed, accuracy and frequently repeated patterns.";
+
+    revision =
+      "Revise formulas, vocabulary, grammar rules, shortcuts and questions you previously got wrong.";
+
+    skip =
+      "Avoid spending too much time on rare question types or extremely difficult problems.";
+
+  }
+
+  /* =========================
+     PREPARATION LEVEL
+  ========================= */
+
+  let levelAdjustment = "";
+
+  if (level.value === "low") {
+
+    levelAdjustment =
+      "Since your preparation is at an early stage, spend more time understanding high-yield basics before moving to practice.";
+
+  } else if (level.value === "medium") {
+
+    levelAdjustment =
+      "Your preparation is moderate, so balance concept revision with targeted practice and previous-year questions.";
+
+  } else if (level.value === "high") {
+
+    levelAdjustment =
+      "Your preparation is strong, so minimize new learning and spend most of your time on PYQs, weak areas and rapid recall.";
+
+  }
+
+  /* =========================
+     TIME-BASED STRATEGY
+  ========================= */
 
   let planTitle = "";
-  let summary = "";
-
+  let timeStrategy = "";
 
   if (hours <= 1) {
 
     planTitle = "Your 1-Hour Rescue Plan";
 
-    summary =
-      "Focus only on the highest-value concepts, important formulas and targeted questions. Avoid starting large new topics.";
+    timeStrategy =
+      "Use roughly 40 minutes for high-priority concepts, 15 minutes for important questions and 5 minutes for final recall.";
 
   } else if (hours <= 4) {
 
     planTitle = "Your 4-Hour Priority Plan";
 
-    summary =
-      "Use your time for high-priority topics first, followed by practice and a final recall session.";
+    timeStrategy =
+      "Spend most of your time on high-value topics, followed by targeted questions and a short final revision.";
 
   } else if (hours <= 12) {
 
     planTitle = "Your Focused Revision Plan";
 
-    summary =
-      "You have enough time for priority topics, targeted practice and a structured final revision.";
+    timeStrategy =
+      "Divide your time between priority topics, practice, weak areas and repeated revision instead of studying everything equally.";
 
   } else {
 
     planTitle = "Your Extended Study Plan";
 
-    summary =
-      "Build your preparation around high-value topics, practice questions, weak areas and repeated revision.";
+    timeStrategy =
+      "Use multiple focused study blocks. Cover high-priority topics first, then practice, strengthen weak areas and finish each block with recall.";
 
   }
 
+  /* =========================
+     UPDATE RESULT
+  ========================= */
 
-  document.getElementById("plan-title").textContent =
-    planTitle;
+  document.getElementById("plan-title").textContent = planTitle;
 
   document.getElementById("plan-summary").textContent =
-    summary;
+    `${levelAdjustment} ${timeStrategy}`;
 
+  const planItems =
+    document.querySelectorAll(".plan-item");
+
+  if (planItems.length >= 4) {
+
+    planItems[0].querySelector("strong").textContent =
+      "01 · High-Priority Topics";
+
+    planItems[0].querySelector("p").textContent =
+      topics.join(" ");
+
+    planItems[1].querySelector("strong").textContent =
+      "02 · Practice Strategy";
+
+    planItems[1].querySelector("p").textContent =
+      practice;
+
+    planItems[2].querySelector("strong").textContent =
+      "03 · Final Revision";
+
+    planItems[2].querySelector("p").textContent =
+      revision;
+
+    planItems[3].querySelector("strong").textContent =
+      "04 · What to Skip";
+
+    planItems[3].querySelector("p").textContent =
+      skip;
+  }
 
   document.getElementById("result-empty").style.display =
     "none";
 
   document.getElementById("result-content").style.display =
     "block";
-
 }
 
 </script>
